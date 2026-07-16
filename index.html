@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>關西雙城療癒之旅｜大阪・京都 六天五夜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF6;
+  --card:#FFFFFF;
+  --ink:#23262D;
+  --ink-soft:#5A6070;
+  --indigo:#26437A;
+  --line:#E5E1D8;
+  --d1:#0064B6; /* 南海電鐵 */
+  --d2:#008E5B; /* 京阪電車 */
+  --d3:#7B1E2B; /* 阪急電鐵 */
+  --d4:#1B5EA6; /* JR ゆめ咲線 */
+  --d5:#6B4E8E; /* 祇園紫 */
+  --d6:#C2186B; /* 樂桃粉 */
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  line-height:1.75;
+  font-size:16px;
+}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+
+/* ---------- Hero ---------- */
+header.hero{
+  background:linear-gradient(160deg,#1D3157 0%,#26437A 55%,#2F5694 100%);
+  color:#F5F3EC;
+  padding:64px 0 56px;
+  position:relative;
+  overflow:hidden;
+}
+header.hero::after{
+  content:"⛩";
+  position:absolute;right:-10px;bottom:-38px;
+  font-size:220px;opacity:.07;line-height:1;
+}
+.hero-eyebrow{
+  font-family:"Zen Maru Gothic",sans-serif;
+  letter-spacing:.35em;font-size:13px;opacity:.8;margin-bottom:14px;
+}
+.hero h1{
+  font-family:"Noto Serif TC",serif;
+  font-weight:900;font-size:clamp(30px,5.5vw,46px);
+  letter-spacing:.06em;line-height:1.35;
+}
+.hero h1 small{display:block;font-size:.5em;font-weight:700;letter-spacing:.25em;margin-top:10px;opacity:.85}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.hero-meta span{
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;padding:5px 16px;font-size:13.5px;letter-spacing:.08em;
+}
+
+/* ---------- 航班登機證 ---------- */
+.flights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:-34px auto 0;position:relative;z-index:2}
+.pass{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;box-shadow:0 8px 24px rgba(35,50,90,.10);
+  position:relative;
+}
+.pass::before{
+  content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;
+}
+.pass.go::before{background:var(--d1)}
+.pass.back::before{background:var(--d6)}
+.pass .tag{font-size:12px;letter-spacing:.25em;color:var(--ink-soft);font-family:"Zen Maru Gothic",sans-serif}
+.pass .route{
+  font-family:"Noto Serif TC",serif;font-weight:900;font-size:21px;margin:4px 0 2px;
+  display:flex;align-items:center;gap:10px;
+}
+.pass .route .arrow{font-size:15px;color:var(--indigo)}
+.pass .detail{font-size:13.5px;color:var(--ink-soft)}
+.pass .detail b{color:var(--ink)}
+
+/* ---------- Day 導覽 ---------- */
+nav.days{
+  position:sticky;top:0;z-index:10;
+  background:rgba(251,250,246,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  margin-top:36px;
+}
+nav.days .wrap{display:flex;gap:8px;overflow-x:auto;padding:12px 20px;scrollbar-width:none}
+nav.days .wrap::-webkit-scrollbar{display:none}
+nav.days a{
+  flex:0 0 auto;text-decoration:none;color:var(--ink-soft);
+  font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:14px;
+  padding:6px 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;
+  transition:.2s;white-space:nowrap;
+}
+nav.days a:hover{transform:translateY(-1px)}
+nav.days a[data-d="1"]:hover{border-color:var(--d1);color:var(--d1)}
+nav.days a[data-d="2"]:hover{border-color:var(--d2);color:var(--d2)}
+nav.days a[data-d="3"]:hover{border-color:var(--d3);color:var(--d3)}
+nav.days a[data-d="4"]:hover{border-color:var(--d4);color:var(--d4)}
+nav.days a[data-d="5"]:hover{border-color:var(--d5);color:var(--d5)}
+nav.days a[data-d="6"]:hover{border-color:var(--d6);color:var(--d6)}
+
+/* ---------- Day 區塊 ---------- */
+section.day{padding:52px 0 8px}
+.day-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:8px}
+.day-badge{
+  flex:0 0 auto;width:64px;height:64px;border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#fff;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+.day-badge .n{font-size:22px;line-height:1}
+.day-badge .l{font-size:10.5px;letter-spacing:.15em;opacity:.9}
+.day-title h2{
+  font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(21px,3.6vw,27px);
+  letter-spacing:.03em;line-height:1.4;
+}
+.day-title .date{font-size:14px;color:var(--ink-soft);letter-spacing:.1em;margin-bottom:2px;font-weight:500}
+.ticket-note{
+  display:inline-block;margin:10px 0 22px;
+  font-size:13.5px;font-weight:500;
+  background:#fff;border:1.5px dashed var(--line);border-radius:8px;
+  padding:6px 14px;color:var(--ink-soft);
+}
+.ticket-note b{color:var(--ink)}
+
+/* ---------- 路線時間軸（signature）---------- */
+.timeline{position:relative;margin-left:10px;padding-left:34px}
+.timeline::before{
+  content:"";position:absolute;left:9px;top:8px;bottom:8px;width:5px;border-radius:3px;
+  background:var(--line-color,#999);
+}
+.stop{position:relative;padding:0 0 26px}
+.stop::before{ /* 車站圓點 */
+  content:"";position:absolute;left:-31px;top:9px;width:15px;height:15px;border-radius:50%;
+  background:#fff;border:4px solid var(--line-color,#999);
+}
+.stop.major::before{width:19px;height:19px;left:-33px;top:7px}
+.stop .time{
+  font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:13.5px;
+  color:var(--line-color,#666);letter-spacing:.05em;
+}
+.stop h3{font-size:17px;font-weight:700;margin:2px 0 4px;letter-spacing:.02em}
+.stop h3 .em{font-size:19px}
+.stop p{font-size:14.5px;color:var(--ink-soft)}
+.tip{
+  margin-top:10px;background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:12px 16px;font-size:14px;position:relative;
+}
+.tip::before{
+  content:"攻略";
+  font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:11.5px;
+  color:#fff;background:var(--line-color,#666);
+  border-radius:5px;padding:2px 8px;margin-right:8px;letter-spacing:.15em;
+}
+.tip b{color:var(--ink)}
+.warn{border-color:#E4B04A;background:#FFF9EC}
+.warn::before{content:"注意";background:#C98A1B}
+
+/* day 主題色綁定 */
+.day[data-d="1"]{--line-color:var(--d1)} .day[data-d="1"] .day-badge{background:var(--d1)}
+.day[data-d="2"]{--line-color:var(--d2)} .day[data-d="2"] .day-badge{background:var(--d2)}
+.day[data-d="3"]{--line-color:var(--d3)} .day[data-d="3"] .day-badge{background:var(--d3)}
+.day[data-d="4"]{--line-color:var(--d4)} .day[data-d="4"] .day-badge{background:var(--d4)}
+.day[data-d="5"]{--line-color:var(--d5)} .day[data-d="5"] .day-badge{background:var(--d5)}
+.day[data-d="6"]{--line-color:var(--d6)} .day[data-d="6"] .day-badge{background:var(--d6)}
+
+.divider{border:none;border-top:1px solid var(--line);margin:44px auto 0;max-width:860px}
+
+footer{
+  text-align:center;padding:46px 20px 60px;color:var(--ink-soft);font-size:13.5px;letter-spacing:.1em;
+}
+footer .stamp{
+  display:inline-block;font-family:"Noto Serif TC",serif;font-weight:900;
+  color:#B3402F;border:2.5px solid #B3402F;border-radius:8px;
+  padding:6px 14px;letter-spacing:.3em;transform:rotate(-4deg);margin-bottom:14px;
+}
+
+@media (max-width:640px){
+  .flights{grid-template-columns:1fr}
+  .day-badge{width:54px;height:54px}
+  .day-badge .n{font-size:19px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  nav.days a{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">旅 の し お り　─　2026 初 秋</div>
+    <h1>關西雙城療癒之旅<small>大 阪 ・ 京 都 ｜ 六 天 五 夜</small></h1>
+    <div class="hero-meta">
+      <span>📅 9/8（二）─ 9/13（日）</span>
+      <span>🏨 全程入住 難波／心齋橋周邊</span>
+      <span>💳 ICOCA＋阪急・京阪一日券</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="flights">
+    <div class="pass go">
+      <div class="tag">去 程 ─ 台灣虎航 IT284</div>
+      <div class="route">高雄 KHH <span class="arrow">➔</span> 大阪 KIX</div>
+      <div class="detail">9/8（二）<b>06:55 起飛 → 10:55 抵達</b></div>
+    </div>
+    <div class="pass back">
+      <div class="tag">回 程 ─ 樂桃航空 MM031</div>
+      <div class="route">大阪 KIX <span class="arrow">➔</span> 高雄 KHH</div>
+      <div class="detail">9/13（日）<b>10:50 起飛 → 13:10 抵達</b></div>
+    </div>
+  </div>
+</div>
+
+<nav class="days">
+  <div class="wrap">
+    <a href="#d1" data-d="1">Day 1 抵達・心齋橋</a>
+    <a href="#d2" data-d="2">Day 2 伏見稻荷・宇治</a>
+    <a href="#d3" data-d="3">Day 3 嵐山・金閣寺</a>
+    <a href="#d4" data-d="4">Day 4 環球影城</a>
+    <a href="#d5" data-d="5">Day 5 銀閣・清水・夜景</a>
+    <a href="#d6" data-d="6">Day 6 返航高雄</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ================= Day 1 ================= -->
+  <section class="day" id="d1" data-d="1">
+    <div class="day-head">
+      <div class="day-badge"><span class="n">01</span><span class="l">DAY</span></div>
+      <div class="day-title">
+        <div class="date">9/8（二）</div>
+        <h2>啟程大阪 ➔ 買耳機 ➔ 黑門海鮮 ➔ 心齋橋夜巡</h2>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="stop"><div class="time">04:55 – 05:25</div><h3>抵達高雄小港機場</h3><p>辦理虎航 IT284 登機與托運。</p></div>
+      <div class="stop"><div class="time">06:55 – 10:55</div><h3>✈️ 航班飛行</h3><p>高雄（KHH）➔ 大阪關西（KIX）。</p></div>
+      <div class="stop"><div class="time">10:55 – 12:00</div><h3>降落關西機場</h3><p>辦理入境、提取行李。</p></div>
+      <div class="stop"><div class="time">12:10 – 12:40</div><h3>🎫 購買交通票券</h3><p>儲值 ICOCA，並購買【阪急一日券】與【京阪一日券】。</p></div>
+      <div class="stop"><div class="time">12:55 – 13:35</div><h3>🚄 南海電鐵 特急 Rapi:t</h3><p>直達難波站，車程約 38 分鐘。</p></div>
+      <div class="stop"><div class="time">13:45 – 14:10</div><h3>🏨 飯店寄放行李</h3><p>抵達難波／心齋橋飯店。</p></div>
+      <div class="stop major"><div class="time">14:20 – 15:00</div><h3>🎧 <span class="em">核心任務｜EDION 愛電王 難波本店</span></h3><p>購買 Bose Ultra 開放式耳機。</p>
+        <div class="tip">出示<b>護照正本</b>（享 10% 免稅）＋ 出示<b>手機電子優惠券</b>（享 7% 折扣）。買完直接拆封配對戴上！</div>
+      </div>
+      <div class="stop major"><div class="time">15:10 – 16:40</div><h3>🦪 <span class="em">美食｜黑門市場大快朵頤下午餐</span></h3>
+        <div class="tip">店家大多營業至 <b>17:00～18:00</b>。現烤和牛串燒、生魚片、大生蠔。</div>
+      </div>
+      <div class="stop"><div class="time">16:45 – 21:00</div><h3>🛍️ 心齋橋商店街・道頓堀・固力果跑跑人</h3><p>漫步商店街逛藥妝與服飾，晚餐可在道頓堀補吃一蘭拉麵或章魚燒。</p></div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- ================= Day 2 ================= -->
+  <section class="day" id="d2" data-d="2">
+    <div class="day-head">
+      <div class="day-badge"><span class="n">02</span><span class="l">DAY</span></div>
+      <div class="day-title">
+        <div class="date">9/9（三）</div>
+        <h2>🦊 千本鳥居 ➔ 宇治世界遺產與抹茶一日遊</h2>
+      </div>
+    </div>
+    <span class="ticket-note">🎫 本日交通票券：<b>京阪電車 京都、大阪觀光一日券</b></span>
+    <div class="timeline">
+      <div class="stop"><div class="time">07:30 – 08:20</div><h3>🚃 京阪電車 特急</h3><p>從大阪至丹波橋站，轉準急／普通車至「伏見稻荷站」。</p></div>
+      <div class="stop major"><div class="time">08:30 – 10:30</div><h3>⛩️ <span class="em">景點｜伏見稻荷大社（千本鳥居）</span></h3>
+        <div class="tip">24 小時開放，御守販售（授與所）時間為 <b>07:00 – 18:00</b>。清晨人最少好拍照，走到<b>奧社奉拜所</b>即可折返。</div>
+      </div>
+      <div class="stop"><div class="time">10:40 – 11:10</div><h3>🚃 前往宇治</h3><p>搭京阪電車至中書島站，轉【京阪宇治線】直達「宇治站」。</p></div>
+      <div class="stop major"><div class="time">11:15 – 12:45</div><h3>🍵 <span class="em">美食｜宇治抹茶午餐時光</span></h3><p>品嚐中村藤吉（平等院店）或伊藤久右衛門的抹茶蕎麥麵與抹茶芭菲。</p></div>
+      <div class="stop major"><div class="time">13:00 – 14:45</div><h3>🦚 <span class="em">世界遺產｜平等院</span></h3>
+        <div class="tip">庭園開放 <b>08:30 – 17:30</b>。若想進入鳳凰堂內部參觀（現場另付 300 日圓），進園後需<b>立刻先往右側排隊預約班次</b>。</div>
+      </div>
+      <div class="stop major"><div class="time">15:00 – 16:00</div><h3>🐰 <span class="em">世界遺產｜宇治上神社</span></h3>
+        <div class="tip">開放與御守販售至 <b>16:30</b>。日本最古老神社建築，必買<b>兔子御神籤</b>。</div>
+      </div>
+      <div class="stop"><div class="time">16:30 – 17:30</div><h3>🚃 返回大阪市區</h3><p>由京阪宇治站搭車返回大阪，享用晚餐。</p></div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- ================= Day 3 ================= -->
+  <section class="day" id="d3" data-d="3">
+    <div class="day-head">
+      <div class="day-badge"><span class="n">03</span><span class="l">DAY</span></div>
+      <div class="day-title">
+        <div class="date">9/10（四）</div>
+        <h2>🐻 嵐山拉拉熊茶屋任務 ➔ 閃耀金閣寺</h2>
+      </div>
+    </div>
+    <span class="ticket-note">🎫 本日交通票券：<b>阪急全線一日券</b>＋現場刷 ICOCA 搭乘嵐電與巴士</span>
+    <div class="timeline">
+      <div class="stop"><div class="time">08:00 – 09:00</div><h3>🚃 前往嵐山</h3><p>從大阪梅田站搭【阪急京都線】至桂站，轉【阪急嵐山線】至「嵐山站」。</p></div>
+      <div class="stop"><div class="time">09:15 – 09:45</div><h3>🌉 渡月橋散步</h3><p>步行前往拉拉熊茶屋。</p></div>
+      <div class="stop major"><div class="time">09:50 – 12:30</div><h3>🧸 <span class="em">核心任務｜嵐山りらっくま茶房（拉拉熊茶屋）</span></h3>
+        <div class="tip">一樓伴手禮店 <b>10:00</b> 營業；二樓餐廳 <b>10:30</b> 營業。請於 <b>09:50 前抵達</b>，直奔二樓機器抽取虛擬號碼牌（不可預約）。抽完先逛一樓限定周邊（必買<b>黑糖饅頭</b>），10:30 依序叫號進座。</div>
+      </div>
+      <div class="stop"><div class="time">12:30 – 14:00</div><h3>🎋 天龍寺 ➔ 嵐山竹林小徑</h3><p>天龍寺庭園開放至 17:00。</p></div>
+      <div class="stop"><div class="time">14:15 – 15:00</div><h3>🚃 體驗｜嵐電路面電車</h3><p>從嵐電嵐山站搭至帷子之辻站，轉北野線至「北野白梅町站」（車資 250 日圓），轉市巴士（204／205 號）至金閣寺道。</p></div>
+      <div class="stop major"><div class="time">15:15 – 16:30</div><h3>✨ <span class="em">景點｜金閣寺（鹿苑寺）</span></h3>
+        <div class="tip">開放時間 <b>09:00 – 17:00</b>。下午陽光斜射是最佳拍照時間，倒影最美。<b>硃砂印</b>與<b>守護木札御守</b>很有名。</div>
+      </div>
+      <div class="stop"><div class="time">16:45 – 18:00</div><h3>🚌 返回大阪</h3><p>搭巴士至京都河原町，轉阪急電車返回大阪。</p></div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- ================= Day 4 ================= -->
+  <section class="day" id="d4" data-d="4">
+    <div class="day-head">
+      <div class="day-badge"><span class="n">04</span><span class="l">DAY</span></div>
+      <div class="day-title">
+        <div class="date">9/11（五）</div>
+        <h2>🏰 解鎖魔法與任天堂！日本環球影城（USJ）一日遊</h2>
+      </div>
+    </div>
+    <span class="ticket-note">🎫 本日交通票券：<b>全程刷 ICOCA 乘車</b></span>
+    <div class="timeline">
+      <div class="stop"><div class="time">06:30 – 07:15</div><h3>🚆 市區出發</h3><p>搭 JR 環狀線至西九條站 ➔ 轉 JR 櫻島線至「Universal City 站」。</p></div>
+      <div class="stop major"><div class="time">07:30 – 20:00</div><h3>🦖 <span class="em">核心景點｜日本環球影城（USJ）瘋玩整天</span></h3>
+        <div class="tip">週五週間人潮相對週末少。官方公告雖為 08:30／09:00，但通常會<b>提早 60 分鐘開閘放人</b>，務必 <b>07:30 前到門口排隊</b>。一入園立刻打開 USJ 官方 APP 抽取<b>「超級任天堂世界」入場整理券</b>。</div>
+      </div>
+      <div class="stop"><div class="time">20:30～</div><h3>🌭 Universal Citywalk 晚餐</h3><p>享用晚餐後返回大阪飯店。</p></div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- ================= Day 5 ================= -->
+  <section class="day" id="d5" data-d="5">
+    <div class="day-head">
+      <div class="day-badge"><span class="n">05</span><span class="l">DAY</span></div>
+      <div class="day-title">
+        <div class="date">9/12（六）</div>
+        <h2>🏮 銀閣寺侘寂 ➔ 清水寺古風散策 ➔ 梅田百萬夜景</h2>
+      </div>
+    </div>
+    <span class="ticket-note">🎫 本日交通票券：<b>阪急全線一日券</b>＋現場刷 ICOCA 搭乘京都市巴士</span>
+    <div class="timeline">
+      <div class="stop"><div class="time">08:00 – 09:00</div><h3>🚃 前往京都</h3><p>從大阪梅田搭【阪急京都線】至京都河原町站，轉【市巴士 32／203 號】至銀閣寺道。</p></div>
+      <div class="stop major"><div class="time">09:20 – 10:40</div><h3>🪨 <span class="em">景點｜銀閣寺（慈照寺）➔ 哲學之道散步</span></h3>
+        <div class="tip">開放時間 <b>08:30 – 17:00</b>。欣賞精緻的枯山水沙礫景觀。</div>
+      </div>
+      <div class="stop"><div class="time">10:50 – 11:20</div><h3>🚌 前往清水寺</h3><p>搭乘【市巴士 100 或 203 轉 206】前往清水寺（五条坂下車）。</p></div>
+      <div class="stop"><div class="time">11:30 – 13:00</div><h3>🍛 美食｜二、三年坂老街町家餐廳午餐</h3><p>湯豆腐或親子丼。</p></div>
+      <div class="stop major"><div class="time">13:15 – 15:40</div><h3>⛩️ <span class="em">景點｜清水寺 ➔ 二年坂、三年坂散策</span></h3>
+        <div class="tip">清水寺與御守販售（本堂大授與所）皆至 <b>18:00</b>。必買經典<b>「開運櫻鈴」御守</b>，並喝音羽瀑布泉水。</div>
+      </div>
+      <div class="stop"><div class="time">15:40 – 17:00</div><h3>🏮 放鬆｜祇園、花見小路、鴨川散步</h3><p>慢慢漫步下山，逛茶屋風的花見小路，傍晚在鴨川河畔吹風小憩。</p></div>
+      <div class="stop"><div class="time">17:15 – 18:15</div><h3>🚃 返回大阪梅田</h3><p>從京都搭乘阪急電車返回。</p></div>
+      <div class="stop major"><div class="time">18:30 – 20:15</div><h3>🥩 <span class="em">美食＋採購｜梅田晚餐＋拉拉熊專賣店</span></h3><p>在梅田享用晚餐（利久牛舌或炸牛元村）。</p>
+        <div class="tip">衝 <b>Kiddy Land 梅田店</b>（營業至 21:00）的 Rilakkuma Store，進行拉拉熊周邊最後大補貨！</div>
+      </div>
+      <div class="stop major"><div class="time">20:30 – 22:00</div><h3>🌃 <span class="em">夜景｜梅田藍天大廈空中庭園展望台</span></h3>
+        <div class="tip">最後入場 <b>22:00</b>。在露天展望台欣賞 360 度無死角的大阪百萬夜景。</div>
+      </div>
+    </div>
+  </section>
+  <hr class="divider">
+
+  <!-- ================= Day 6 ================= -->
+  <section class="day" id="d6" data-d="6">
+    <div class="day-head">
+      <div class="day-badge"><span class="n">06</span><span class="l">DAY</span></div>
+      <div class="day-title">
+        <div class="date">9/13（日）</div>
+        <h2>✈️ 優雅收單 ➔ 完美返航高雄</h2>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="stop"><div class="time">07:30 – 08:00</div><h3>🏨 飯店退房</h3><p>辦理 Check-out，在難波市區享用早餐或外帶超商三明治。</p></div>
+      <div class="stop major"><div class="time">08:10 – 08:50</div><h3>🚊 <span class="em">嚴禁遲到｜出發前往機場</span></h3>
+        <div class="tip warn">從難波站搭乘 <b>08:10 或 08:30</b> 的【南海電鐵 特急 Rapi:t】，約 38 分鐘直達關西機場第一航廈。</div>
+      </div>
+      <div class="stop major"><div class="time">08:55 – 09:35</div><h3>🎫 <span class="em">核心手續｜樂桃 MM031 辦理登機與托運</span></h3>
+        <div class="tip">起飛時間為 10:50。樂桃國際線嚴格規定必須在<b>起飛前 50 分鐘（即 10:00 前）</b>完成自助報到與托運，逾時無法登機。</div>
+        <div class="tip warn">樂桃隨身手提行李（合計 2 件）嚴格限制在 <b>7.0 公斤</b>內，請在櫃檯前先秤好。</div>
+      </div>
+      <div class="stop"><div class="time">09:35 – 10:35</div><h3>🍫 免稅採購｜機場免稅店 Last Minute 補貨</h3><p>過海關後掃貨 Royce 生巧克力、白色戀人等。</p>
+        <div class="tip">免稅店伴手禮<b>不計入手提 7 公斤限制</b>，拿得動即可。</div>
+      </div>
+      <div class="stop"><div class="time">10:50 – 13:10</div><h3>🛫 樂桃 MM031 返航</h3><p>平安飛抵高雄，旅程圓滿結束！</p></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="stamp">旅 途 平 安</div><br>
+  關西雙城療癒之旅 ・ 大阪 — 京都 ・ 2026.09.08 – 09.13
+</footer>
+
+</body>
+</html>
