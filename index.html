@@ -9,18 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#FBF7F2;
-  --card:#FFFFFF;
-  --ink:#40362C;
-  --ink-soft:#8B7A6B;
-  --indigo:#B0693F; /* 主題柔橘 */
-  --line:#EAE0D3;
-  --d1:#C9A25B; /* 柔金 */
-  --d2:#C98254; /* 柔蜜柑 */
-  --d3:#A85C3E; /* 柔朱紅 */
-  --d4:#C08B70; /* 柔珊瑚 */
-  --d5:#96694A; /* 柔焦糖 */
-  --d6:#CEA075; /* 柔杏橘 */
+  --paper:#EFD3B7; /* 主色基底 */
+  --card:#FFFCF6;
+  --ink:#463523;
+  --ink-soft:#846C50;
+  --indigo:#8A6440; /* 深核桃棕 */
+  --line:#DEC19E;
+  --d1:#B08D4F; /* 金茶 */
+  --d2:#B87B4C; /* 焦糖 */
+  --d3:#96573A; /* 赭石 */
+  --d4:#A9765E; /* 陶土 */
+  --d5:#7C5A3A; /* 咖啡 */
+  --d6:#C39067; /* 杏仁 */
   --radius:14px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -36,8 +36,8 @@ body{
 
 /* ---------- Hero ---------- */
 header.hero{
-  background:linear-gradient(160deg,#7E4A2E 0%,#A5663F 55%,#BC7E52 100%);
-  color:#FBF3EA;
+  background:linear-gradient(160deg,#5E4327 0%,#7C5A38 55%,#96714A 100%);
+  color:#F9EFDF;
   padding:64px 0 56px;
   position:relative;
   overflow:hidden;
@@ -67,7 +67,7 @@ header.hero::after{
 .flights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:-34px auto 0;position:relative;z-index:2}
 .pass{
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-  padding:18px 20px;box-shadow:0 8px 24px rgba(140,105,75,.12);
+  padding:18px 20px;box-shadow:0 10px 26px rgba(110,80,50,.18);
   position:relative;
 }
 .pass::before{
@@ -89,7 +89,7 @@ header.hero::after{
 /* ---------- Day 導覽 ---------- */
 nav.days{
   position:sticky;top:0;z-index:10;
-  background:rgba(251,247,242,.92);backdrop-filter:blur(8px);
+  background:rgba(239,211,183,.94);backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line);
   margin-top:36px;
 }
@@ -98,7 +98,7 @@ nav.days .wrap::-webkit-scrollbar{display:none}
 nav.days a{
   flex:0 0 auto;text-decoration:none;color:var(--ink-soft);
   font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:14px;
-  padding:6px 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;
+  padding:6px 14px;border-radius:999px;border:1.5px solid #CBA97F;background:var(--card);
   transition:.2s;white-space:nowrap;
 }
 nav.days a:hover{transform:translateY(-1px)}
@@ -129,7 +129,7 @@ section.day{padding:52px 0 8px}
 .ticket-note{
   display:inline-block;margin:10px 0 22px;
   font-size:13.5px;font-weight:500;
-  background:#fff;border:1.5px dashed var(--line);border-radius:8px;
+  background:var(--card);border:1.5px dashed #CBA97F;border-radius:8px;
   padding:6px 14px;color:var(--ink-soft);
 }
 .ticket-note b{color:var(--ink)}
@@ -143,7 +143,7 @@ section.day{padding:52px 0 8px}
 .stop{position:relative;padding:0 0 26px}
 .stop::before{
   content:"";position:absolute;left:-31px;top:9px;width:15px;height:15px;border-radius:50%;
-  background:#fff;border:4px solid var(--line-color,#999);
+  background:var(--paper);border:4px solid var(--line-color,#999);
 }
 .stop.major::before{width:19px;height:19px;left:-33px;top:7px}
 .stop .time{
@@ -156,12 +156,12 @@ section.day{padding:52px 0 8px}
 .cost{
   display:inline-block;margin-left:8px;vertical-align:2px;
   font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:12px;
-  color:var(--line-color,#666);background:#fff;
+  color:var(--line-color,#666);background:var(--card);
   border:1.5px solid var(--line-color,#999);border-radius:999px;
   padding:1px 10px;white-space:nowrap;
 }
 .tip{
-  margin-top:10px;background:#fff;border:1px solid var(--line);border-radius:10px;
+  margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:10px;
   padding:12px 16px;font-size:14px;position:relative;
 }
 .tip::before{
@@ -171,17 +171,17 @@ section.day{padding:52px 0 8px}
   border-radius:5px;padding:2px 8px;margin-right:8px;letter-spacing:.15em;
 }
 .tip b{color:var(--ink)}
-.warn{border-color:#D9BC80;background:#FBF6E9}
-.warn::before{content:"注意";background:#B08A45}
-.must{border-color:#A8BAA4;background:#F4F7F2}
-.must::before{content:"必看必買";background:#6B8465}
+.warn{border-color:#C9A768;background:#FBF3E0}
+.warn::before{content:"注意";background:#A6813F}
+.must{border-color:#9FAE8C;background:#F4F6EC}
+.must::before{content:"必看必買";background:#71805A}
 .timecheck{border-color:#D08770;background:#FDF3EF}
 .timecheck::before{content:"時間提醒";background:#C15B3E}
 
 /* ---------- 每日花費小計 ---------- */
 .day-cost{
   margin:4px 0 8px 44px;
-  background:#fff;border:1.5px solid var(--line);border-radius:12px;
+  background:var(--card);border:1.5px solid var(--line);border-radius:12px;
   padding:14px 18px;font-size:14px;
 }
 .day-cost .dc-title{
@@ -199,11 +199,11 @@ section.day{padding:52px 0 8px}
   font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(22px,3.8vw,28px);
   letter-spacing:.06em;margin-bottom:18px;
 }
-.budget-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-size:14.5px}
+.budget-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-size:14.5px}
 .budget-table th,.budget-table td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}
-.budget-table th{background:#F4EBDF;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;letter-spacing:.1em;font-size:13px;color:var(--ink-soft)}
+.budget-table th{background:#E6C9A4;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;letter-spacing:.1em;font-size:13px;color:var(--ink-soft)}
 .budget-table td.num{text-align:right;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;white-space:nowrap}
-.budget-table tr.total td{background:#A5663F;color:#fff;font-weight:700;border:none}
+.budget-table tr.total td{background:#7C5A38;color:#fff;font-weight:700;border:none}
 .budget-table tr.total td.num{font-size:17px}
 .budget-note{margin-top:14px;font-size:13.5px;color:var(--ink-soft);line-height:1.9}
 
@@ -214,7 +214,7 @@ footer{
 }
 footer .stamp{
   display:inline-block;font-family:"Noto Serif TC",serif;font-weight:900;
-  color:#A5573F;border:2.5px solid #A5573F;border-radius:8px;
+  color:#96573A;border:2.5px solid #96573A;border-radius:8px;
   padding:6px 14px;letter-spacing:.3em;transform:rotate(-4deg);margin-bottom:14px;
 }
 
@@ -266,7 +266,7 @@ footer .stamp{
     </div>
     <div class="pass hotel">
       <div class="tag">住 宿 ─ 9/8（二）─ 9/13（日）共 5 晚</div>
-      <div class="route">🏨 大阪心齋橋方舟酒店 <span style="font-size:14px;color:#C9A25B">★★★</span></div>
+      <div class="route">🏨 大阪心齋橋方舟酒店 <span style="font-size:14px;color:#B08D4F">★★★</span></div>
       <div class="detail">入住 <b>15:00 起</b>｜退房 <b>10:00 前</b>｜房價 <b>NT$3,465（≈ ¥16,500）</b>／人（5 晚）<br>📍 大阪府大阪市中央區島之内 1-19-18（Chuo-ku Shimanouchi 1-19-18）</div>
     </div>
   </div>
@@ -343,7 +343,7 @@ footer .stamp{
         <div class="tip must">👀 必看：<b>鳳凰堂與阿字池倒影</b>（拿出 10 円硬幣對照拍一張！）、<b>鳳翔館博物館</b>的國寶金銅鳳凰與雲中供養菩薩像（門票已含）。🛍 必買：<b>鳳凰御守</b>、鳳翔館限定明信片與文創小物。</div>
       </div>
       <div class="stop major"><div class="time">15:00 - 16:00</div><h3>🐰 <span class="em">世界遺產｜宇治上神社</span><span class="cost">免費</span></h3>
-        <div class="tip">開放與御守販售至 <b>16:30</b>。</div>
+        <div class="tip">開放與御守販售至 <b>16:30</b>，是全程御守收攤最早、時間最緊的一站。<b>一進神社請先買兔子御神籤與御守，再慢慢參觀</b>——若前面平等院鳳凰堂的預約班次較晚、延誤離開，才不會錯過。</div>
         <div class="tip must">👀 必看：國寶<b>本殿</b>（日本現存最古老的神社建築）、鎌倉時代的<b>拜殿</b>、宇治七名水中唯一現存的<b>「桐原水」</b>。🛍 必買：<b>五色兔子御神籤</b>（うさぎみくじ，約 ¥500／NT$105，抽完的兔子可帶回家）、兔子御守。</div>
       </div>
       <div class="stop"><div class="time">16:30 - 17:30</div><h3>🚃 返回大阪市區<span class="cost">約 ¥430＋晚餐 ¥1,500（NT$405）</span></h3><p>由京阪宇治站搭車返回大阪，享用晚餐。</p></div>
@@ -376,7 +376,7 @@ footer .stamp{
         <div class="tip must">👀 必看：<b>曹源池庭園</b>借景嵐山的池泉迴遊式名園（世界遺產核心）、法堂天花板的<b>「雲龍圖」八方睨龍</b>（週末與特定日公開，另付 ¥500／NT$105）。逛完從<b>北門</b>出去，直接無縫接上竹林小徑最順路。🛍 必買：達摩圖御朱印帳、竹林限定竹製小物。</div></div>
       <div class="stop"><div class="time">14:15 - 15:00</div><h3>🚃 體驗｜嵐電路面電車<span class="cost">¥250＋巴士 ¥230（NT$100）</span></h3><p>從嵐電嵐山站搭至帷子之辻站，轉北野線至「北野白梅町站」（車資 ¥250／NT$55），轉市巴士（204／205 號）至金閣寺道。</p></div>
       <div class="stop major"><div class="time">15:15 - 16:30</div><h3>✨ <span class="em">景點｜金閣寺（鹿苑寺）</span><span class="cost">¥500（NT$105）</span></h3>
-        <div class="tip">開放時間 <b>09:00 - 17:00</b>。下午陽光斜射是最佳拍照時間，倒影最美。</div>
+        <div class="tip">開放時間 <b>09:00 - 17:00</b>。下午陽光斜射是最佳拍照時間，倒影最美。御朱印窗口常需排隊，<b>建議一入園先到朱印所寫御朱印</b>，領取後再去看倒影，動線剛好順路。</div>
         <div class="tip must">👀 必看：鏡湖池的<b>「逆金閣」倒影</b>（入口進去第一個觀景點就是最佳機位）、舍利殿頂端的<b>金鳳凰</b>、傳為義滿手植的<b>陸舟之松</b>。🛍 必買：<b>硃砂印（御朱印）</b>、<b>守護木札御守</b>、金箔抹茶點心與金箔小物。</div>
       </div>
       <div class="stop"><div class="time">16:45 - 18:30</div><h3>🚌 返回大阪<span class="cost">巴士 ¥230＋阪急 ¥410（NT$135）</span></h3><p>搭市巴士 205 號至京都河原町（約 40～50 分，傍晚易塞車），轉阪急特急返回大阪梅田（約 45 分）。</p>
