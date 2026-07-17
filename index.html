@@ -153,6 +153,21 @@ section.day{padding:52px 0 8px}
 }
 .stop h3{font-size:17px;font-weight:700;margin:2px 0 4px;letter-spacing:.02em}
 .stop h3 .em{font-size:19px}
+.mon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;
+  border:2px solid currentColor;background:var(--card);
+  font-family:"Noto Serif TC",serif;font-weight:900;font-size:13.5px;line-height:1;
+  margin-right:7px;vertical-align:-6px;letter-spacing:0;
+}
+.stop h3 .mon{color:var(--line-color,#666)}
+.pass .mon{width:28px;height:28px;font-size:14px;vertical-align:-7px}
+.brandico{
+  width:26px;height:26px;border-radius:6px;object-fit:contain;
+  background:#fff;border:1px solid var(--line);
+  margin-right:7px;vertical-align:-6px;
+}
+.pass .brandico{width:28px;height:28px;vertical-align:-7px}
 .stop p{font-size:14.5px;color:var(--ink-soft)}
 .cost{
   display:inline-block;margin-left:8px;vertical-align:2px;
@@ -248,7 +263,7 @@ footer .stamp{
     <div class="hero-meta">
       <span>📅 9/8（二）─ 9/13（日）</span>
       <span>🏨 大阪心齋橋方舟酒店（5 晚）</span>
-      <span>💰 全程總預算 約 NT$25,500（≈ ¥121,000）／人</span>
+      <span>💰 全程總預算 約 ¥121,000（NT$25,500）／人</span>
     </div>
   </div>
 </header>
@@ -257,18 +272,18 @@ footer .stamp{
   <div class="flights">
     <div class="pass go">
       <div class="tag">去 程 ─ 台灣虎航 IT284</div>
-      <div class="route">高雄 KHH <span class="arrow">➔</span> 大阪 KIX</div>
-      <div class="detail">9/8（二）<b>06:55 起飛 → 10:55 抵達</b>｜票價 <b>NT$7,249（≈ ¥34,500）</b>／人</div>
+      <div class="route"><img class="brandico" alt="" src="https://www.tigerairtw.com/favicon.ico" data-alt="https://www.google.com/s2/favicons?domain=www.tigerairtw.com&amp;sz=64" onload="var m=this.nextElementSibling;if(m&&m.classList.contains('mon'))m.style.display='none'" onerror="if(this.dataset.alt){this.src=this.dataset.alt;this.removeAttribute('data-alt')}else{this.style.display='none';var m=this.nextElementSibling;if(m&&m.classList.contains('mon'))m.style.display=''}"><span class="mon" style="color:#D9772B">虎</span>高雄 KHH <span class="arrow">➔</span> 大阪 KIX</div>
+      <div class="detail">9/8（二）<b>06:55 起飛 → 10:55 抵達</b>｜票價 <b>約 ¥34,500（NT$7,249 實付）</b>／人</div>
     </div>
     <div class="pass back">
       <div class="tag">回 程 ─ 樂桃航空 MM031</div>
-      <div class="route">大阪 KIX <span class="arrow">➔</span> 高雄 KHH</div>
-      <div class="detail">9/13（日）<b>10:50 起飛 → 13:10 抵達</b>｜票價 <b>¥26,650（≈ NT$5,600）</b>／人</div>
+      <div class="route"><img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=flypeach.com&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon" style="color:#C24E86">桃</span>大阪 KIX <span class="arrow">➔</span> 高雄 KHH</div>
+      <div class="detail">9/13（日）<b>10:50 起飛 → 13:10 抵達</b>｜票價 <b>¥26,650（NT$5,600）</b>／人</div>
     </div>
     <div class="pass hotel">
       <div class="tag">住 宿 ─ 9/8（二）─ 9/13（日）共 5 晚</div>
-      <div class="route">🏨 大阪心齋橋方舟酒店 <span style="font-size:14px;color:#B99B63">★★★</span></div>
-      <div class="detail">入住 <b>15:00 起</b>｜退房 <b>10:00 前</b>｜房價 <b>NT$3,465（≈ ¥16,500）</b>／人（5 晚）<br>📍 大阪府大阪市中央區島之内 1-19-18（Chuo-ku Shimanouchi 1-19-18）</div>
+      <div class="route"><img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=ark-hotel.co.jp&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon" style="color:var(--indigo)">宿</span>大阪心齋橋方舟酒店 <span style="font-size:14px;color:#B99B63">★★★</span></div>
+      <div class="detail">入住 <b>15:00 起</b>｜退房 <b>10:00 前</b>｜房價 <b>約 ¥16,500（NT$3,465 實付）</b>／人（5 晚）<br>📍 大阪府大阪市中央區島之内 1-19-18（Chuo-ku Shimanouchi 1-19-18）</div>
     </div>
   </div>
 </div>
@@ -301,12 +316,12 @@ footer .stamp{
       <div class="stop"><div class="time">06:55 - 10:55</div><h3>✈️ 航班飛行</h3><p>高雄（KHH）➔ 大阪關西（KIX）。</p></div>
       <div class="stop"><div class="time">10:55 - 12:00</div><h3>降落關西機場</h3><p>辦理入境、提取行李。建議先在線上填好 Visit Japan Web，加快通關速度。</p></div>
       <div class="stop"><div class="time">12:10 - 12:40</div><h3>🎫 儲值 Suica<span class="cost">儲值 ¥3,000（NT$630）</span></h3><p>儲值 Suica 備用，Suica 在關西全線通用，全程交通（京阪、阪急、嵐電、JR、市巴士）直接刷卡即可，免排隊買票。若使用手機版 Mobile Suica，可隨時線上加值更方便。</p></div>
-      <div class="stop"><div class="time">12:55 - 13:35</div><h3>🚄 南海電鐵 特急 Rapi:t<span class="cost">¥1,410（NT$300）</span></h3><p>直達難波站，車程約 38 分鐘。事先於官網或 KLOOK／KKday 購買電子優惠票約 ¥1,300～1,410（NT$275～300），比現場買（¥1,560／NT$330 起）便宜。</p></div>
+      <div class="stop"><div class="time">12:55 - 13:35</div><h3><img class="brandico" alt="" src="https://www.nankai.co.jp/favicon.ico" data-alt="https://www.google.com/s2/favicons?domain=www.nankai.co.jp&amp;sz=64" onload="var m=this.nextElementSibling;if(m&&m.classList.contains('mon'))m.style.display='none'" onerror="if(this.dataset.alt){this.src=this.dataset.alt;this.removeAttribute('data-alt')}else{this.style.display='none';var m=this.nextElementSibling;if(m&&m.classList.contains('mon'))m.style.display=''}"><span class="mon">南</span>南海電鐵 特急 Rapi:t<span class="cost">¥1,410（NT$300）</span></h3><p>直達難波站，車程約 38 分鐘。事先於官網或 KLOOK／KKday 購買電子優惠票約 ¥1,300～1,410（NT$275～300），比現場買（¥1,560／NT$330 起）便宜。</p></div>
       <div class="stop"><div class="time">13:45 - 14:10</div><h3>🏨 大阪心齋橋方舟酒店 寄放行李</h3><p>飯店入住時間為 15:00 起，先寄放行李輕裝出發，晚上回飯店再正式 Check-in。</p></div>
-      <div class="stop major"><div class="time">14:20 - 15:00</div><h3>🎧 <span class="em">核心任務｜EDION 愛電王 難波本店</span><span class="cost">購物另計</span></h3><p>購買 Bose Ultra 開放式耳機。</p>
+      <div class="stop major"><div class="time">14:20 - 15:00</div><h3><span class="em">核心任務｜<img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=edion.com&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon">電</span>EDION 愛電王 難波本店</span><span class="cost">購物另計</span></h3><p>購買 Bose Ultra 開放式耳機。</p>
         <div class="tip">出示<b>護照正本</b>（享 10% 免稅）＋ 出示<b>手機電子優惠券</b>（享 7% 折扣）。買完直接拆封配對戴上！</div>
       </div>
-      <div class="stop major"><div class="time">15:10 - 16:40</div><h3>🦪 <span class="em">美食｜黑門市場大快朵頤下午餐</span><span class="cost">約 ¥3,000（NT$630）</span></h3>
+      <div class="stop major"><div class="time">15:10 - 16:40</div><h3><span class="em">美食｜<img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=kuromon.com&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon">黒</span>黑門市場大快朵頤下午餐</span><span class="cost">約 ¥3,000（NT$630）</span></h3>
         <div class="tip">店家大多營業至 <b>17:00～18:00</b>。現烤和牛串燒、生魚片、大生蠔。EDION 難波本店步行到黑門市場約 10 分鐘，動線順暢。</div>
       </div>
       <div class="stop"><div class="time">16:45 - 21:00</div><h3>🛍️ 心齋橋商店街・道頓堀・固力果跑跑人<span class="cost">晚餐約 ¥1,500（NT$315）</span></h3><p>漫步商店街逛藥妝與服飾，晚餐可在道頓堀補吃一蘭拉麵或章魚燒。</p></div>
@@ -331,7 +346,7 @@ footer .stamp{
     <span class="ticket-note">🎫 本日交通：京阪電車全程刷 Suica，約 <b>¥1,200（NT$250）</b></span>
     <div class="timeline">
       <div class="stop"><div class="time">07:30 - 08:20</div><h3>🚃 京阪電車 特急<span class="cost">約 ¥430（NT$90）</span></h3><p>從大阪（淀屋橋／北濱）搭特急至丹波橋站，轉準急／普通車至「伏見稻荷站」。</p></div>
-      <div class="stop major"><div class="time">08:30 - 10:30</div><h3>⛩️ <span class="em">景點｜伏見稻荷大社（千本鳥居）</span><span class="cost">免費</span></h3>
+      <div class="stop major"><div class="time">08:30 - 10:30</div><h3><span class="em">景點｜<span class="mon">稲</span>伏見稻荷大社（千本鳥居）</span><span class="cost">免費</span></h3>
         <div class="tip">24 小時開放，御守販售（授與所）時間為 <b>07:00 - 18:00</b>。清晨人最少好拍照，走到<b>奧社奉拜所</b>即可折返。</div>
         <div class="tip must">👀 必看：<b>千本鳥居</b>朱紅隧道、豐臣秀吉捐建的<b>樓門</b>、奧社奉拜所的<b>「重輕石」</b>（許願後舉起，比想像中輕代表願望易實現）。🛍 必買：<b>白狐繪馬</b>（可自己畫狐狸表情）、狐狸御神籤、迷你鳥居御守。</div>
       </div>
@@ -339,11 +354,11 @@ footer .stamp{
       <div class="stop major"><div class="time">11:15 - 12:45</div><h3>🍵 <span class="em">美食｜宇治抹茶午餐時光</span><span class="cost">約 ¥2,200（NT$460）</span></h3><p>品嚐中村藤吉（平等院店）或伊藤久右衛門的抹茶蕎麥麵與抹茶芭菲。</p>
         <div class="tip">中村藤吉即使平日中午也常排 30～60 分鐘，<b>11:15 一抵達就先去登記候位</b>，等叫號時可先逛旁邊的表參道商店街。</div>
       </div>
-      <div class="stop major"><div class="time">13:00 - 14:45</div><h3>🦚 <span class="em">世界遺產｜平等院</span><span class="cost">¥700＋¥300（NT$210）</span></h3>
+      <div class="stop major"><div class="time">13:00 - 14:45</div><h3><span class="em">世界遺產｜<img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=byodoin.or.jp&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon">鳳</span>平等院</span><span class="cost">¥700＋¥300（NT$210）</span></h3>
         <div class="tip">庭園開放 <b>08:30 - 17:30</b>。若想進入鳳凰堂內部參觀（現場另付 ¥300／NT$65），進園後需<b>立刻先往右側排隊預約班次</b>。</div>
         <div class="tip must">👀 必看：<b>鳳凰堂與阿字池倒影</b>（拿出 10 円硬幣對照拍一張！）、<b>鳳翔館博物館</b>的國寶金銅鳳凰與雲中供養菩薩像（門票已含）。🛍 必買：<b>鳳凰御守</b>、鳳翔館限定明信片與文創小物。</div>
       </div>
-      <div class="stop major"><div class="time">15:00 - 16:00</div><h3>🐰 <span class="em">世界遺產｜宇治上神社</span><span class="cost">免費</span></h3>
+      <div class="stop major"><div class="time">15:00 - 16:00</div><h3><span class="em">世界遺產｜<span class="mon">兔</span>宇治上神社</span><span class="cost">免費</span></h3>
         <div class="tip">開放與御守販售至 <b>16:30</b>，是全程御守收攤最早、時間最緊的一站。<b>一進神社請先買兔子御神籤與御守，再慢慢參觀</b>——若前面平等院鳳凰堂的預約班次較晚、延誤離開，才不會錯過。</div>
         <div class="tip must">👀 必看：國寶<b>本殿</b>（日本現存最古老的神社建築）、鎌倉時代的<b>拜殿</b>、宇治七名水中唯一現存的<b>「桐原水」</b>。🛍 必買：<b>五色兔子御神籤</b>（うさぎみくじ，約 ¥500／NT$105，抽完的兔子可帶回家）、兔子御守。</div>
       </div>
@@ -370,13 +385,13 @@ footer .stamp{
     <div class="timeline">
       <div class="stop"><div class="time">08:00 - 09:00</div><h3>🚃 前往嵐山<span class="cost">¥410（NT$85）</span></h3><p>從大阪梅田站搭【阪急京都線】至桂站，轉【阪急嵐山線】至「嵐山站」。</p></div>
       <div class="stop"><div class="time">09:15 - 09:45</div><h3>🌉 渡月橋散步</h3><p>步行前往拉拉熊茶屋。</p></div>
-      <div class="stop major"><div class="time">09:50 - 12:30</div><h3>🧸 <span class="em">核心任務｜嵐山りらっくま茶房（拉拉熊茶屋）</span><span class="cost">餐點約 ¥2,200（NT$460）</span></h3>
+      <div class="stop major"><div class="time">09:50 - 12:30</div><h3><span class="em">核心任務｜<img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=rilakkumasabo.jp&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon">熊</span>嵐山りらっくま茶房（拉拉熊茶屋）</span><span class="cost">餐點約 ¥2,200（NT$460）</span></h3>
         <div class="tip">一樓伴手禮店 <b>10:00</b> 營業；二樓餐廳 <b>10:30</b> 營業。請於 <b>09:50 前抵達</b>，直奔二樓機器抽取虛擬號碼牌（不可預約）。抽完先逛一樓限定周邊（必買<b>黑糖饅頭</b>），10:30 依序叫號進座。</div>
       </div>
-      <div class="stop"><div class="time">12:30 - 14:00</div><h3>🎋 天龍寺 ➔ 嵐山竹林小徑<span class="cost">庭園 ¥500～800（NT$105～170）</span></h3><p>天龍寺庭園開放至 17:00。1.5 小時走完庭園＋竹林節奏偏快，建議庭園快速動線、把時間留給竹林拍照。</p>
+      <div class="stop"><div class="time">12:30 - 14:00</div><h3><img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=tenryuji.com&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon">竹</span>天龍寺 ➔ 嵐山竹林小徑<span class="cost">庭園 ¥500～800（NT$105～170）</span></h3><p>天龍寺庭園開放至 17:00。1.5 小時走完庭園＋竹林節奏偏快，建議庭園快速動線、把時間留給竹林拍照。</p>
         <div class="tip must">👀 必看：<b>曹源池庭園</b>借景嵐山的池泉迴遊式名園（世界遺產核心）、法堂天花板的<b>「雲龍圖」八方睨龍</b>（週末與特定日公開，另付 ¥500／NT$105）。逛完從<b>北門</b>出去，直接無縫接上竹林小徑最順路。🛍 必買：達摩圖御朱印帳、竹林限定竹製小物。</div></div>
       <div class="stop"><div class="time">14:15 - 15:00</div><h3>🚃 體驗｜嵐電路面電車<span class="cost">¥250＋巴士 ¥230（NT$100）</span></h3><p>從嵐電嵐山站搭至帷子之辻站，轉北野線至「北野白梅町站」（車資 ¥250／NT$55），轉市巴士（204／205 號）至金閣寺道。</p></div>
-      <div class="stop major"><div class="time">15:15 - 16:30</div><h3>✨ <span class="em">景點｜金閣寺（鹿苑寺）</span><span class="cost">¥500（NT$105）</span></h3>
+      <div class="stop major"><div class="time">15:15 - 16:30</div><h3><span class="em">景點｜<img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=shokoku-ji.jp&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon">金</span>金閣寺（鹿苑寺）</span><span class="cost">¥500（NT$105）</span></h3>
         <div class="tip">開放時間 <b>09:00 - 17:00</b>。下午陽光斜射是最佳拍照時間，倒影最美。御朱印窗口常需排隊，<b>建議一入園先到朱印所寫御朱印</b>，領取後再去看倒影，動線剛好順路。</div>
         <div class="tip must">👀 必看：鏡湖池的<b>「逆金閣」倒影</b>（入口進去第一個觀景點就是最佳機位）、舍利殿頂端的<b>金鳳凰</b>、傳為義滿手植的<b>陸舟之松</b>。🛍 必買：<b>硃砂印（御朱印）</b>、<b>守護木札御守</b>、金箔抹茶點心與金箔小物。</div>
       </div>
@@ -404,7 +419,7 @@ footer .stamp{
     <span class="ticket-note">🎫 本日交通：全程刷 Suica，JR 來回約 <b>¥380（NT$80）</b></span>
     <div class="timeline">
       <div class="stop"><div class="time">06:30 - 07:15</div><h3>🚆 市區出發<span class="cost">約 ¥190（NT$40）</span></h3><p>搭 JR 環狀線至西九條站 ➔ 轉 JR 櫻島線至「Universal City 站」。</p></div>
-      <div class="stop major"><div class="time">07:30 - 20:00</div><h3>🦖 <span class="em">核心景點｜日本環球影城（USJ）瘋玩整天</span><span class="cost">門票 ¥8,400（NT$1,765）起</span></h3>
+      <div class="stop major"><div class="time">07:30 - 20:00</div><h3><span class="em">核心景點｜<span class="mon">環</span>日本環球影城（USJ）瘋玩整天</span><span class="cost">門票 ¥8,400（NT$1,765）起</span></h3>
         <div class="tip">週五週間人潮相對週末少。官方公告雖為 08:30／09:00，但通常會<b>提早 60 分鐘開閘放人</b>，務必 <b>07:30 前到門口排隊</b>。一入園立刻打開 USJ 官方 APP 抽取<b>「超級任天堂世界」入場整理券</b>。</div>
         <div class="tip warn"><b>2026/9/1 起 USJ 門票改為「動態定價」，同一天的票會愈賣愈貴、無公告上限！</b>9/11 入園的門票已於 7/1 開賣，最低價 ¥8,400（NT$1,765）起，<b>請立刻購買，愈早買愈便宜</b>。園內餐飲預算另抓約 ¥3,500（NT$735）。</div>
         <div class="tip must">🎢 必玩：<b>超級任天堂世界</b>（瑪利歐賽車、咚奇剛瘋狂礦車）、<b>哈利波特禁忌之旅</b>、好萊塢美夢乘車遊；晚上別錯過<b>霍格華茲城堡光雕秀</b>。🛍 必買必吃：瑪利歐角色帽、限定造型爆米花桶、奶油啤酒（加購紀念杯）。</div>
@@ -433,23 +448,23 @@ footer .stamp{
       <div class="stop"><div class="time">07:30 - 08:50</div><h3>🚃 前往京都<span class="cost">阪急 ¥410＋巴士 ¥230（NT$135）</span></h3><p>從大阪梅田搭【阪急京都線】特急至京都河原町站（約 45 分），轉【市巴士 32／203 號】至銀閣寺道（含等車約 35 分）。</p>
         <div class="tip">今天是週六、京都巴士容易塞車，<b>務必準時 07:30 從梅田出發</b>，時刻表已預留轉乘與等車時間。</div>
       </div>
-      <div class="stop major"><div class="time">09:00 - 10:30</div><h3>🪨 <span class="em">景點｜銀閣寺（慈照寺）➔ 哲學之道散步</span><span class="cost">¥500（NT$105）</span></h3>
+      <div class="stop major"><div class="time">09:00 - 10:30</div><h3><span class="em">景點｜<img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=shokoku-ji.jp&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon">銀</span>銀閣寺（慈照寺）➔ 哲學之道散步</span><span class="cost">¥500（NT$105）</span></h3>
         <div class="tip">開放時間 <b>08:30 - 17:00</b>。</div>
         <div class="tip must">👀 必看：<b>銀沙灘與向月台</b>的月光枯山水、國寶<b>觀音殿（銀閣）</b>、沿山路上行至<b>展望所</b>俯瞰整座庭園與京都市街。🛍 必買：御朱印、東山限定<b>香守</b>（香包御守）。</div>
       </div>
       <div class="stop"><div class="time">10:40 - 11:20</div><h3>🚌 前往清水寺<span class="cost">¥230（NT$50）</span></h3><p>搭乘【市巴士 203 轉 206】前往清水寺（五条坂下車）。週六車多，含等車與轉乘預留 40 分鐘。</p></div>
       <div class="stop"><div class="time">11:30 - 13:00</div><h3>🍛 美食｜二、三年坂老街町家餐廳午餐<span class="cost">約 ¥2,000（NT$420）</span></h3><p>湯豆腐或親子丼。</p></div>
-      <div class="stop major"><div class="time">13:15 - 15:40</div><h3>⛩️ <span class="em">景點｜清水寺 ➔ 二年坂、三年坂散策</span><span class="cost">¥400～500（NT$85～105）</span></h3>
+      <div class="stop major"><div class="time">13:15 - 15:40</div><h3><span class="em">景點｜<img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=kiyomizudera.or.jp&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon">清</span>清水寺 ➔ 二年坂、三年坂散策</span><span class="cost">¥400～500（NT$85～105）</span></h3>
         <div class="tip">清水寺與御守販售（本堂大授與所）皆至 <b>18:00</b>。</div>
         <div class="tip must">👀 必看：懸空 13 公尺、139 根巨柱無釘工法的<b>清水舞台</b>、朱紅<b>仁王門與三重塔</b>、<b>音羽瀑布</b>三道泉水（學業、戀愛、健康——傳說只能擇一喝，貪心會失效！）。🛍 必買：經典<b>「開運櫻鈴」御守</b>、音羽瀑布延命水結緣小物；二、三年坂沿路的七味家七味粉與京都限定和菓子也很值得帶。</div>
       </div>
-      <div class="stop"><div class="time">15:40 - 17:00</div><h3>🏮 放鬆｜祇園、花見小路、鴨川散步<span class="cost">免費</span></h3><p>慢慢漫步下山，逛茶屋風的花見小路，傍晚在鴨川河畔吹風小憩。</p>
+      <div class="stop"><div class="time">15:40 - 17:00</div><h3><span class="mon">祇</span>放鬆｜祇園、花見小路、鴨川散步<span class="cost">免費</span></h3><p>慢慢漫步下山，逛茶屋風的花見小路，傍晚在鴨川河畔吹風小憩。</p>
         <div class="tip must">👀 必看：祇園白川的<b>巽橋</b>與石板路町家（祇園最經典的取景點）、傍晚常有趕場的藝妓舞妓路過（欣賞就好，請勿追拍）。</div></div>
       <div class="stop"><div class="time">17:15 - 18:15</div><h3>🚃 返回大阪梅田<span class="cost">¥410（NT$85）</span></h3><p>從京都河原町搭乘阪急電車返回。</p></div>
-      <div class="stop major"><div class="time">18:30 - 20:15</div><h3>🥩 <span class="em">美食＋採購｜梅田晚餐＋拉拉熊專賣店</span><span class="cost">晚餐約 ¥2,500（NT$525）</span></h3><p>在梅田享用晚餐（利久牛舌或炸牛元村）。</p>
+      <div class="stop major"><div class="time">18:30 - 20:15</div><h3><span class="em">美食＋採購｜<img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=kiddyland.co.jp&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon">梅</span>梅田晚餐＋拉拉熊專賣店</span><span class="cost">晚餐約 ¥2,500（NT$525）</span></h3><p>在梅田享用晚餐（利久牛舌或炸牛元村）。</p>
         <div class="tip">衝 <b>Kiddy Land 梅田店</b>（營業至 21:00）的 Rilakkuma Store，進行拉拉熊周邊最後大補貨！</div>
       </div>
-      <div class="stop major"><div class="time">20:30 - 22:00</div><h3>🌃 <span class="em">夜景｜梅田藍天大廈空中庭園展望台</span><span class="cost">¥2,000（NT$420）</span></h3>
+      <div class="stop major"><div class="time">20:30 - 22:00</div><h3><span class="em">夜景｜<span class="mon">空</span>梅田藍天大廈空中庭園展望台</span><span class="cost">¥2,000（NT$420）</span></h3>
         <div class="tip">最後入場 <b>22:00</b>。在露天展望台欣賞 360 度無死角的大阪百萬夜景。</div>
         <div class="tip must">👀 必看：連接雙塔、懸在 170 公尺高空的<b>透明空中電扶梯</b>（上樓本身就是體驗）、頂樓露天迴廊的<b>Lumi Sky Walk 螢光步道</b>。🛍 順手帶：展望台限定夜景明信片，寄一張給自己作旅程收尾。</div>
       </div>
@@ -473,10 +488,10 @@ footer .stamp{
     </div>
     <div class="timeline">
       <div class="stop"><div class="time">07:30 - 08:00</div><h3>🏨 大阪心齋橋方舟酒店 退房<span class="cost">早餐約 ¥600（NT$125）</span></h3><p>辦理 Check-out（退房期限 10:00 前，時間充裕），在難波市區享用早餐或外帶超商三明治。</p></div>
-      <div class="stop major"><div class="time">08:10 - 08:50</div><h3>🚊 <span class="em">嚴禁遲到｜出發前往機場</span><span class="cost">¥1,410（NT$300）</span></h3>
+      <div class="stop major"><div class="time">08:10 - 08:50</div><h3><span class="em">嚴禁遲到｜<img class="brandico" alt="" src="https://www.nankai.co.jp/favicon.ico" data-alt="https://www.google.com/s2/favicons?domain=www.nankai.co.jp&amp;sz=64" onload="var m=this.nextElementSibling;if(m&&m.classList.contains('mon'))m.style.display='none'" onerror="if(this.dataset.alt){this.src=this.dataset.alt;this.removeAttribute('data-alt')}else{this.style.display='none';var m=this.nextElementSibling;if(m&&m.classList.contains('mon'))m.style.display=''}"><span class="mon">南</span>出發前往機場</span><span class="cost">¥1,410（NT$300）</span></h3>
         <div class="tip warn">從難波站搭乘 <b>08:10</b> 的【南海電鐵 特急 Rapi:t】，約 38 分鐘直達關西機場第一航廈。<b>強烈建議搭 08:10 這班</b>——若搭 08:30 班次，抵達機場已 09:10 左右，距離 10:00 報到截止只剩 50 分鐘，遇到排隊會非常驚險。回程 Rapi:t 也記得提前線上購票劃位。</div>
       </div>
-      <div class="stop major"><div class="time">08:55 - 09:35</div><h3>🎫 <span class="em">核心手續｜樂桃 MM031 辦理登機與托運</span></h3>
+      <div class="stop major"><div class="time">08:55 - 09:35</div><h3><span class="em">核心手續｜<img class="brandico" alt="" src="https://www.google.com/s2/favicons?domain=flypeach.com&amp;sz=64" onload="if(this.nextElementSibling&&this.nextElementSibling.classList.contains('mon'))this.nextElementSibling.style.display='none'" onerror="this.style.display='none'"><span class="mon" style="color:#C24E86">桃</span>樂桃 MM031 辦理登機與托運</span></h3>
         <div class="tip">起飛時間為 10:50。樂桃國際線嚴格規定必須在<b>起飛前 50 分鐘（即 10:00 前）</b>完成自助報到與托運，逾時無法登機。</div>
         <div class="tip warn">樂桃隨身手提行李（合計 2 件）嚴格限制在 <b>7.0 公斤</b>內，請在櫃檯前先秤好。</div>
       </div>
@@ -498,14 +513,14 @@ footer .stamp{
     <h2>💰 全程預算總表（每人）</h2>
     <table class="budget-table">
       <tr><th>類別</th><th>內容</th><th style="text-align:right">預估金額</th></tr>
-      <tr><td>機票（去程）</td><td>台灣虎航 IT284 高雄 ➔ 大阪</td><td class="num">NT$7,249<br><span style="font-size:12.5px;font-weight:500">≈ ¥34,500</span></td></tr>
-      <tr><td>機票（回程）</td><td>樂桃航空 MM031 大阪 ➔ 高雄</td><td class="num">¥26,650<br><span style="font-size:12.5px;font-weight:500">≈ NT$5,600</span></td></tr>
-      <tr><td>住宿</td><td>大阪心齋橋方舟酒店 9/8–9/13 共 5 晚</td><td class="num">NT$3,465<br><span style="font-size:12.5px;font-weight:500">≈ ¥16,500</span></td></tr>
+      <tr><td>機票（去程）</td><td>台灣虎航 IT284 高雄 ➔ 大阪</td><td class="num">約 ¥34,500<br><span style="font-size:12.5px;font-weight:500">NT$7,249 實付</span></td></tr>
+      <tr><td>機票（回程）</td><td>樂桃航空 MM031 大阪 ➔ 高雄</td><td class="num">¥26,650<br><span style="font-size:12.5px;font-weight:500">NT$5,600</span></td></tr>
+      <tr><td>住宿</td><td>大阪心齋橋方舟酒店 9/8–9/13 共 5 晚</td><td class="num">約 ¥16,500<br><span style="font-size:12.5px;font-weight:500">NT$3,465 實付</span></td></tr>
       <tr><td>交通</td><td>Rapi:t 來回、京阪、阪急、嵐電、JR、市巴士（全程 Suica）</td><td class="num">約 ¥8,300<br><span style="font-size:12.5px;font-weight:500">≈ NT$1,740</span></td></tr>
       <tr><td>門票</td><td>平等院＋鳳凰堂、天龍寺、金閣寺、銀閣寺、清水寺、空中庭園</td><td class="num">約 ¥5,300<br><span style="font-size:12.5px;font-weight:500">≈ NT$1,110</span></td></tr>
       <tr><td>USJ</td><td>一日門票（動態定價 ¥8,400 起，愈早買愈便宜）</td><td class="num">¥8,400 起<br><span style="font-size:12.5px;font-weight:500">≈ NT$1,765 起</span></td></tr>
       <tr><td>餐飲</td><td>黑門市場、抹茶午餐、拉拉熊茶屋、牛舌、USJ 園內等</td><td class="num">約 ¥22,000<br><span style="font-size:12.5px;font-weight:500">≈ NT$4,620</span></td></tr>
-      <tr class="total"><td colspan="2">全程總計（不含購物伴手禮）</td><td class="num">約 NT$25,500（≈ ¥121,000）<br><span style="font-size:13px;font-weight:500">機票＋住宿 NT$16,300＋當地花費 ¥44,000（≈ NT$9,200）</span></td></tr>
+      <tr class="total"><td colspan="2">全程總計（不含購物伴手禮）</td><td class="num">約 ¥121,000（NT$25,500）<br><span style="font-size:13px;font-weight:500">機票＋住宿 約 ¥77,000（NT$16,300 實付）＋當地花費 ¥44,000（NT$9,200）</span></td></tr>
     </table>
     <div class="budget-note">
       ※ 匯率以 1 日圓 ≈ 0.21 新台幣概估，實際依當時匯率為準；樂桃機票 ¥26,650 依此約 NT$5,600。<br>
