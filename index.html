@@ -2,7 +2,7 @@
 <html lang="zh-Hant-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=5.0, user-scalable=yes">
 <title>關西雙城療癒之旅｜大阪・京都 六天五夜</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -248,6 +248,21 @@ footer .stamp{
   .day-badge .n{font-size:19px}
   .day-cost{margin-left:0}
 }
+/* ---------- 縮放控制 ---------- */
+.zoom-ctrl{
+  position:fixed;right:16px;bottom:18px;z-index:99;
+  display:flex;flex-direction:column;gap:8px;
+}
+.zoom-ctrl button{
+  width:44px;height:44px;border-radius:50%;
+  border:1.5px solid var(--line);background:var(--card);color:var(--indigo);
+  font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:19px;
+  cursor:pointer;box-shadow:0 4px 14px rgba(90,70,60,.18);
+  display:flex;align-items:center;justify-content:center;line-height:1;
+}
+.zoom-ctrl button:active{transform:scale(.94)}
+.zoom-ctrl .zr{font-size:12px}
+
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
   nav.days a{transition:none}
@@ -537,5 +552,27 @@ footer .stamp{
   關西雙城療癒之旅 ・ 大阪 — 京都 ・ 2026.09.08 – 09.13
 </footer>
 
+<div class="zoom-ctrl" aria-label="頁面縮放">
+  <button type="button" onclick="pageZoom(0.1)" aria-label="放大">＋</button>
+  <button type="button" class="zr" onclick="pageZoom(0)" aria-label="重設縮放">100%</button>
+  <button type="button" onclick="pageZoom(-0.1)" aria-label="縮小">－</button>
+</div>
+<script>
+(function(){
+  var z = 1;
+  window.pageZoom = function(step){
+    z = step === 0 ? 1 : Math.min(2, Math.max(0.6, Math.round((z + step) * 10) / 10));
+    var label = document.querySelector('.zoom-ctrl .zr');
+    if ('zoom' in document.body.style) {
+      document.body.style.zoom = z;
+    } else {
+      document.body.style.transformOrigin = 'top left';
+      document.body.style.transform = 'scale(' + z + ')';
+      document.body.style.width = (100 / z) + '%';
+    }
+    if (label) label.textContent = Math.round(z * 100) + '%';
+  };
+})();
+</script>
 </body>
 </html>
