@@ -321,7 +321,6 @@ footer .stamp{
   .stop::before{left:-27px}
   .stop.major::before{left:-29px}
   .now-btn span,.now-btn{font-size:12.5px;padding:9px 13px}
-  .zoom-ctrl button{width:40px;height:40px;font-size:17px}
 }
 @media (max-width:380px){
   .hero{padding:52px 0 46px}
@@ -382,21 +381,6 @@ a.poi:hover{opacity:.7}
   box-shadow:0 4px 14px rgba(90,70,60,.18);
 }
 .now-btn:active{transform:scale(.96)}
-
-/* ---------- 縮放控制 ---------- */
-.zoom-ctrl{
-  position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:99;
-  display:flex;flex-direction:column;gap:8px;
-}
-.zoom-ctrl button{
-  width:44px;height:44px;border-radius:50%;
-  border:1.5px solid var(--line);background:var(--card);color:var(--indigo);
-  font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:19px;
-  cursor:pointer;box-shadow:0 4px 14px rgba(90,70,60,.18);
-  display:flex;align-items:center;justify-content:center;line-height:1;
-}
-.zoom-ctrl button:active{transform:scale(.94)}
-.zoom-ctrl .zr{font-size:12px}
 
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -699,12 +683,6 @@ a.poi:hover{opacity:.7}
 </footer>
 
 <button type="button" class="now-btn" onclick="jumpToNow(true)">📍 目前行程</button>
-<div class="zoom-ctrl" aria-label="頁面縮放">
-  <button type="button" class="zr" onclick="jumpToNow(true)" aria-label="跳到目前行程" style="font-size:11px">現在</button>
-  <button type="button" onclick="pageZoom(0.1)" aria-label="放大">＋</button>
-  <button type="button" class="zr" onclick="pageZoom(0)" aria-label="重設縮放">100%</button>
-  <button type="button" onclick="pageZoom(-0.1)" aria-label="縮小">－</button>
-</div>
 <div class="jump-banner" id="jumpBanner"></div>
 <script>
 (function(){
@@ -824,22 +802,6 @@ a.poi:hover{opacity:.7}
   window.addEventListener('load', function(){ jumpToNow(false); });
 })();
 </script>
-<script>
-(function(){
-  var z = 1;
-  window.pageZoom = function(step){
-    z = step === 0 ? 1 : Math.min(2, Math.max(0.6, Math.round((z + step) * 10) / 10));
-    var label = document.querySelector('.zoom-ctrl .zr');
-    if ('zoom' in document.body.style) {
-      document.body.style.zoom = z;
-    } else {
-      document.body.style.transformOrigin = 'top left';
-      document.body.style.transform = 'scale(' + z + ')';
-      document.body.style.width = (100 / z) + '%';
-    }
-    if (label) label.textContent = Math.round(z * 100) + '%';
-  };
-})();
 
 (function(){
   var tripDays = ['2026-09-08','2026-09-09','2026-09-10','2026-09-11','2026-09-12','2026-09-13'];
