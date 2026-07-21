@@ -2,7 +2,7 @@
 <html lang="zh-Hant-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=5.0, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 <title>關西雙城療癒之旅｜大阪・京都 六天五夜</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,6 +34,10 @@ body{
   font-size:16px;
 }
 .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+@media (min-width:1024px){
+  .wrap{max-width:920px}
+  body{font-size:16.5px}
+}
 
 /* ---------- Hero ---------- */
 header.hero{
@@ -255,7 +259,7 @@ section.day{padding:52px 0 8px}
   font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(22px,3.8vw,28px);
   letter-spacing:.06em;margin-bottom:18px;
 }
-.budget-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-size:14.5px}
+.budget-table{width:100%;min-width:520px;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;font-size:14.5px}
 .budget-table th,.budget-table td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}
 .budget-table th{background:#EFD3B7;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;letter-spacing:.1em;font-size:13px;color:#6B5741}
 .budget-table td.num{text-align:right;font-family:"Zen Maru Gothic",sans-serif;font-weight:700;white-space:nowrap}
@@ -287,6 +291,16 @@ footer .stamp{
   .day-badge{width:54px;height:54px}
   .day-badge .n{font-size:19px}
   .day-cost{margin-left:0}
+  .timeline{padding-left:28px}
+  .stop::before{left:-27px}
+  .stop.major::before{left:-29px}
+  .now-btn span,.now-btn{font-size:12.5px;padding:9px 13px}
+  .zoom-ctrl button{width:40px;height:40px;font-size:17px}
+}
+@media (max-width:380px){
+  .hero{padding:52px 0 46px}
+  .pass .route{font-size:18px}
+  nav.days a{font-size:13px;padding:5px 11px}
 }
 /* ---------- 官網連結 ---------- */
 a.poi{
@@ -334,7 +348,7 @@ a.poi:hover{opacity:.7}
   50%{opacity:.72}
 }
 .now-btn{
-  position:fixed;left:16px;bottom:18px;z-index:99;
+  position:fixed;left:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:99;
   display:flex;align-items:center;gap:6px;
   border:1.5px solid var(--line);background:var(--card);color:var(--indigo);
   font-family:"Zen Maru Gothic",sans-serif;font-weight:700;font-size:13px;
@@ -345,7 +359,7 @@ a.poi:hover{opacity:.7}
 
 /* ---------- 縮放控制 ---------- */
 .zoom-ctrl{
-  position:fixed;right:16px;bottom:18px;z-index:99;
+  position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:99;
   display:flex;flex-direction:column;gap:8px;
 }
 .zoom-ctrl button{
@@ -621,7 +635,7 @@ a.poi:hover{opacity:.7}
   <!-- ================= 預算總表 ================= -->
   <section class="budget" id="budget">
     <h2>💰 全程預算總表（每人）</h2>
-    <table class="budget-table">
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><table class="budget-table">
       <tr><th>類別</th><th>內容</th><th style="text-align:right">預估金額</th></tr>
       <tr><td>機票（去程）</td><td>台灣虎航 IT284 高雄 ➔ 大阪</td><td class="num">約 ¥34,500<br><span style="font-size:12.5px;font-weight:500">NT$7,249 實付</span></td></tr>
       <tr><td>機票（回程）</td><td>樂桃航空 MM031 大阪 ➔ 高雄</td><td class="num">¥26,650<br><span style="font-size:12.5px;font-weight:500">NT$5,600</span></td></tr>
@@ -631,7 +645,7 @@ a.poi:hover{opacity:.7}
       <tr><td>USJ</td><td>一日門票（動態定價 ¥8,400 起，愈早買愈便宜）</td><td class="num">¥8,400 起<br><span style="font-size:12.5px;font-weight:500">≈ NT$1,765 起</span></td></tr>
       <tr><td>餐飲</td><td>黑門市場、抹茶午餐、拉拉熊茶屋、牛舌、USJ 園內等</td><td class="num">約 ¥22,000<br><span style="font-size:12.5px;font-weight:500">≈ NT$4,620</span></td></tr>
       <tr class="total"><td colspan="2">全程總計（不含購物伴手禮）</td><td class="num">約 ¥121,000（NT$25,500）<br><span style="font-size:13px;font-weight:500">機票＋住宿 約 ¥77,000（NT$16,300 實付）＋當地花費 ¥44,000（NT$9,200）</span></td></tr>
-    </table>
+    </table></div>
     <div class="budget-note">
       ※ 匯率以 1 日圓 ≈ 0.21 新台幣概估，實際依當時匯率為準；樂桃機票 ¥26,650 依此約 NT$5,600。<br>
       ※ 機票＋住宿三筆為已確認實付價格；其餘為預估值。<br>
