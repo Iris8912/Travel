@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行李打包清單 ・ 關西雙城療癒之旅</title>
+<style>
+  :root{
+    --bg:#FBFAF6;
+    --card:#FFFFFF;
+    --accent:#EFD3B7;
+    --accent-deep:#C98A5E;
+    --ink:#3A2E28;
+    --ink-soft:#8A7B72;
+    --line:#EAE0D6;
+    --done:#B9C9A9;
+    --warn:#E0A96D;
+    --d1:#5C7A99; /* 南海藍 */
+    --d2:#6E8F6B; /* 京阪綠 */
+    --d3:#8C4B4B; /* 阪急酒紅 */
+    --d4:#C98A5E; /* USJ 陽光橙 */
+    --d5:#A9748C; /* 京都紫粉 */
+    --d6:#D98F9E; /* 樂桃粉 */
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;overflow-x:hidden;max-width:100%;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Noto Sans TC","PingFang TC","Hiragino Sans",sans-serif;
+    padding-bottom:80px;
+  }
+  header{
+    padding:38px 20px 26px;
+    text-align:center;
+    position:relative;
+    border-bottom:1px solid var(--line);
+  }
+  header .tag{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.15em;
+    color:var(--accent-deep);
+    border:1px solid var(--accent);
+    padding:4px 14px;
+    border-radius:999px;
+    margin-bottom:14px;
+  }
+  header h1{
+    margin:0;
+    font-size:26px;
+    font-weight:700;
+    letter-spacing:.02em;
+  }
+  header p{
+    margin:8px 0 0;
+    color:var(--ink-soft);
+    font-size:13px;
+  }
+  .progress-wrap{
+    max-width:520px;
+    margin:22px auto 0;
+    padding:0 20px;
+  }
+  .progress-bar{
+    background:var(--line);
+    border-radius:999px;
+    height:10px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    background:linear-gradient(90deg,var(--accent),var(--accent-deep));
+    width:0%;
+    transition:width .4s ease;
+  }
+  .progress-label{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+  main{
+    max-width:640px;
+    margin:0 auto;
+    padding:26px 16px;
+  }
+  .day-strip{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:4px 4px 18px;
+    margin-bottom:6px;
+  }
+  .day-chip{
+    flex:0 0 auto;
+    font-size:12px;
+    padding:7px 12px;
+    border-radius:10px;
+    color:#fff;
+    white-space:nowrap;
+    opacity:.92;
+  }
+  section.category{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    margin-bottom:16px;
+    overflow:hidden;
+  }
+  .cat-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 18px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .cat-head-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .cat-icon{
+    font-size:18px;
+  }
+  .cat-title{
+    font-size:15px;
+    font-weight:700;
+  }
+  .cat-count{
+    font-size:12px;
+    color:var(--ink-soft);
+    background:var(--bg);
+    border-radius:999px;
+    padding:3px 10px;
+  }
+  .chevron{
+    color:var(--ink-soft);
+    transition:transform .25s ease;
+    font-size:12px;
+  }
+  .cat-head.open .chevron{ transform:rotate(180deg); }
+  .items{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+  }
+  .items.open{ max-height:2000px; }
+  ul{
+    list-style:none;
+    margin:0;
+    padding:0 14px 14px;
+  }
+  li{
+    border-top:1px solid var(--line);
+  }
+  label{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:11px 4px;
+    cursor:pointer;
+    font-size:14px;
+    line-height:1.5;
+  }
+  input[type="checkbox"]{
+    appearance:none;
+    width:19px;
+    height:19px;
+    min-width:19px;
+    border:1.5px solid var(--accent-deep);
+    border-radius:6px;
+    margin-top:1px;
+    position:relative;
+    cursor:pointer;
+    background:#fff;
+  }
+  input[type="checkbox"]:checked{
+    background:var(--done);
+    border-color:var(--done);
+  }
+  input[type="checkbox"]:checked::after{
+    content:"✓";
+    position:absolute;
+    left:3px;
+    top:-1px;
+    font-size:13px;
+    color:#fff;
+    font-weight:700;
+  }
+  .item-text.checked{
+    color:var(--ink-soft);
+    text-decoration:line-through;
+  }
+  .note{
+    display:block;
+    font-size:12px;
+    color:var(--accent-deep);
+    margin-top:2px;
+  }
+  .day-note{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px 18px;
+    margin-bottom:16px;
+  }
+  .day-note h3{
+    margin:0 0 10px;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .day-note .dot{
+    width:10px;height:10px;border-radius:50%;
+  }
+  .day-note ul{padding:0; margin:0;}
+  .day-note li{
+    border-top:none;
+    font-size:13px;
+    color:var(--ink);
+    padding:4px 0;
+    list-style:disc;
+    margin-left:18px;
+  }
+  footer{
+    text-align:center;
+    padding:24px;
+    color:var(--ink-soft);
+    font-size:12px;
+  }
+  .reset-btn{
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    background:var(--card);
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    font-size:12px;
+    padding:8px 14px;
+    border-radius:999px;
+    box-shadow:0 4px 14px rgba(0,0,0,.08);
+    cursor:pointer;
+  }
+  h2.section-title{
+    font-size:13px;
+    letter-spacing:.1em;
+    color:var(--ink-soft);
+    margin:26px 4px 12px;
+    text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">PACKING LIST</div>
+  <h1>行李打包清單</h1>
+  <p>關西雙城療癒之旅・大阪－京都・2026.09.08 – 09.13</p>
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label"><span id="progressText">0 / 0 已打包</span><span id="progressPct">0%</span></div>
+  </div>
+</header>
+
+<main>
+
+  <h2 class="section-title">每日提醒</h2>
+
+  <div class="day-note">
+    <h3><span class="dot" style="background:var(--d2)"></span>Day 2・宇治 中村藤吉</h3>
+    <ul><li>戶外走動＋排隊候位時間長，先到先登記</li><li>沿路階梯多，穿好走的鞋</li></ul>
+  </div>
+  <div class="day-note">
+    <h3><span class="dot" style="background:var(--d3)"></span>Day 3・嵐山、金閣寺</h3>
+    <ul><li>傍晚回程車多，備薄外套應對晚間微涼</li><li>竹林小徑地面不平，避免高跟或涼拖</li></ul>
+  </div>
+  <div class="day-note">
+    <h3><span class="dot" style="background:var(--d4)"></span>Day 4・USJ（9/11）</h3>
+    <ul><li>全天戶外＋日曬強，防曬乳、帽子、水壺務必帶</li><li>背輕便小包，園內置物櫃另計費</li></ul>
+  </div>
+  <div class="day-note">
+    <h3><span class="dot" style="background:var(--d5)"></span>Day 5・銀閣寺、清水寺、梅田夜景</h3>
+    <ul><li>07:30 早出發，前一晚先打包好隨身物品</li><li>白天到晚上溫差稍大，薄外套隨身</li><li>當天走路量最大，鞋子舒適度優先</li></ul>
+  </div>
+  <div class="day-note">
+    <h3><span class="dot" style="background:var(--d6)"></span>Day 6・返程</h3>
+    <ul><li>樂桃手提行李限重 7kg／2件，出發前先秤好</li><li>免稅戰利品不算隨身限重，托運行李預留空間</li></ul>
+  </div>
+
+  <h2 class="section-title">打包清單</h2>
+
+  <section class="category" data-cat="docs">
+    <div class="cat-head open">
+      <div class="cat-head-left"><span class="cat-icon">🛂</span><span class="cat-title">證件與財務</span></div>
+      <div class="cat-head-left"><span class="cat-count" data-count></span><span class="chevron">▾</span></div>
+    </div>
+    <div class="items open">
+      <ul>
+        <li><label><input type="checkbox"><span class="item-text">護照（正本＋影本／手機備份）</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">機票、飯店訂單截圖或離線版</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">日幣現金＋信用卡</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">ICOCA 交通卡（或手機 Apple Pay 綁定）<span class="note">出發前先儲值一些現金備用</span></span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">旅遊保險證明</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">台灣駕照＋日文譯本（若有租借需求）</span></label></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="category" data-cat="elec">
+    <div class="cat-head open">
+      <div class="cat-head-left"><span class="cat-icon">🔌</span><span class="cat-title">電子產品</span></div>
+      <div class="cat-head-left"><span class="cat-count" data-count></span><span class="chevron">▾</span></div>
+    </div>
+    <div class="items open">
+      <ul>
+        <li><label><input type="checkbox"><span class="item-text">手機＋充電線</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">行動電源</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">相機、記憶卡、備用電池</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">延長線或多孔插座（日台插座同型免轉接頭）</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">耳機</span></label></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="category" data-cat="clothes">
+    <div class="cat-head open">
+      <div class="cat-head-left"><span class="cat-icon">👕</span><span class="cat-title">衣物</span></div>
+      <div class="cat-head-left"><span class="cat-count" data-count></span><span class="chevron">▾</span></div>
+    </div>
+    <div class="items open">
+      <ul>
+        <li><label><input type="checkbox"><span class="item-text">短袖上衣 3～4 件（透氣排汗）</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">薄長袖或襯衫 1 件（防曬＋室內冷氣）</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">輕便長褲／裙 1～2 件</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">短褲／裙 1～2 件</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">內衣褲、襪子（天數＋1 件備用）</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">薄外套或防風衣<span class="note">Day 3 傍晚、Day 5 夜間展望台用</span></span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">輕便雨衣或折疊傘</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">好走的鞋子<span class="note">Day 5 走路量最大，務必穿過磨合期</span></span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">拖鞋或涼鞋（飯店內用）</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">帽子<span class="note">USJ、伏見稻荷、清水寺戶外用</span></span></label></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="category" data-cat="toiletries">
+    <div class="cat-head open">
+      <div class="cat-head-left"><span class="cat-icon">🧴</span><span class="cat-title">盥洗與個人保養</span></div>
+      <div class="cat-head-left"><span class="cat-count" data-count></span><span class="chevron">▾</span></div>
+    </div>
+    <div class="items open">
+      <ul>
+        <li><label><input type="checkbox"><span class="item-text">牙刷牙膏（飯店多有提供，可視習慣自備）</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">保養品、防曬乳 SPF50<span class="note">USJ、伏見稻荷戶外日曬強</span></span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">個人藥品（腸胃藥、感冒藥、防蚊液、暈車藥、生理用品）</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">隱形眼鏡／眼鏡＋清潔液</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">小包面紙、濕紙巾、口罩</span></label></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="category" data-cat="extra">
+    <div class="cat-head open">
+      <div class="cat-head-left"><span class="cat-icon">🎒</span><span class="cat-title">其他實用小物</span></div>
+      <div class="cat-head-left"><span class="cat-count" data-count></span><span class="chevron">▾</span></div>
+    </div>
+    <div class="items open">
+      <ul>
+        <li><label><input type="checkbox"><span class="item-text">環保／摺疊購物袋（藥妝店戰利品用）</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">透明夾鏈袋（分裝、防雨淋濕文件）</span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">行李秤<span class="note">Day 6 樂桃手提限重 7kg／2件，先秤好再出門</span></span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">水壺或空瓶<span class="note">USJ、寺廟走動時省錢又減塑</span></span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">輕便小後背包<span class="note">USJ、寺廟走動用，行李箱留飯店</span></span></label></li>
+        <li><label><input type="checkbox"><span class="item-text">住宿地址日文版（叫車、問路用）</span></label></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>旅 途 平 安　・　關西雙城療癒之旅　2026.09.08 – 09.13</footer>
+
+<button class="reset-btn" id="resetBtn">重置清單</button>
+
+<script>
+  const STORAGE_KEY = 'kansai-packing-list-2026';
+
+  function loadState(){
+    try{
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    }catch(e){ return {}; }
+  }
+  function saveState(state){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+  checkboxes.forEach((cb, i)=> cb.dataset.id = 'item-' + i);
+
+  let state = loadState();
+
+  function applyState(){
+    checkboxes.forEach(cb=>{
+      const checked = !!state[cb.dataset.id];
+      cb.checked = checked;
+      cb.nextElementSibling.classList.toggle('checked', checked);
+    });
+    updateProgress();
+    updateCategoryCounts();
+  }
+
+  function updateProgress(){
+    const total = checkboxes.length;
+    const done = checkboxes.filter(cb=>cb.checked).length;
+    const pct = total ? Math.round(done/total*100) : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = done + ' / ' + total + ' 已打包';
+    document.getElementById('progressPct').textContent = pct + '%';
+  }
+
+  function updateCategoryCounts(){
+    document.querySelectorAll('section.category').forEach(sec=>{
+      const cbs = sec.querySelectorAll('input[type="checkbox"]');
+      const done = Array.from(cbs).filter(cb=>cb.checked).length;
+      sec.querySelector('[data-count]').textContent = done + '/' + cbs.length;
+    });
+  }
+
+  checkboxes.forEach(cb=>{
+    cb.addEventListener('change', ()=>{
+      state[cb.dataset.id] = cb.checked;
+      saveState(state);
+      cb.nextElementSibling.classList.toggle('checked', cb.checked);
+      updateProgress();
+      updateCategoryCounts();
+    });
+  });
+
+  document.querySelectorAll('.cat-head').forEach(head=>{
+    head.addEventListener('click', ()=>{
+      head.classList.toggle('open');
+      head.parentElement.querySelector('.items').classList.toggle('open');
+    });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    if(confirm('確定要清空所有打包紀錄嗎？')){
+      state = {};
+      saveState(state);
+      applyState();
+    }
+  });
+
+  applyState();
+</script>
+
+</body>
+</html>
