@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8/1 嘉義家族一日遊 — 行程總覽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --shell:#E4E1D6;
+  --shell-deep:#D6D2C3;
+  --card:#EDEBE2;
+  --ink:#1F3A34;
+  --ink-soft:#4A6058;
+  --brass:#B07A2B;
+  --roast:#4A2C1D;
+  --tide:#2E6E8E;
+  --gift:#8E3B34;
+  --line:rgba(31,58,52,.16);
+
+  --display:"Noto Serif TC",serif;
+  --body:"Noto Sans TC",system-ui,sans-serif;
+  --mono:"IBM Plex Mono","Noto Sans TC",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--shell);color:var(--ink);
+  font-family:var(--body);line-height:1.75;letter-spacing:.01em;
+}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+a{color:var(--tide)}
+
+/* ---------- hero ---------- */
+.hero{padding:64px 0 0}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gift);margin:0 0 16px;
+}
+h1{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(34px,7.5vw,58px);line-height:1.14;margin:0 0 34px;letter-spacing:-.01em;
+}
+h1 em{font-style:normal;color:var(--gift)}
+
+/* ---------- key facts ---------- */
+.keys{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);margin:0 0 14px;
+}
+.keys div{background:var(--card);padding:18px}
+.keys dt{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-soft);margin:0 0 6px;
+}
+.keys dd{margin:0;font-family:var(--display);font-weight:700;font-size:20px;line-height:1.35}
+.keys dd small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--ink-soft);margin-top:3px}
+
+/* ---------- section heads ---------- */
+h2.sec{
+  font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--brass);font-weight:500;margin:56px 0 20px;
+  padding-bottom:10px;border-bottom:1px solid var(--ink);
+}
+
+/* ---------- tropic band ---------- */
+.tropic{position:relative;padding:20px 0;border-bottom:1px solid var(--line)}
+.tropic::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px dashed var(--brass);opacity:.5}
+.tropic-label{
+  position:relative;display:inline-block;background:var(--shell);padding-right:14px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--brass);
+}
+.tropic-note{position:relative;background:var(--shell);display:inline-block;padding-left:14px;font-size:13px;color:var(--ink-soft)}
+
+/* ---------- schedule ---------- */
+.stop{display:grid;grid-template-columns:78px 1fr;gap:0 22px}
+.time{
+  font-family:var(--mono);font-weight:600;font-size:17px;
+  font-variant-numeric:tabular-nums;padding-top:2px;color:var(--roast);
+}
+.track{position:relative;padding:0 0 38px 28px;border-left:1px solid var(--line)}
+.stop:last-of-type .track{border-left-color:transparent;padding-bottom:8px}
+.dot{position:absolute;left:-6px;top:9px;width:11px;height:11px;border-radius:50%;background:var(--roast)}
+h3.stopname{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.3;margin:0 0 4px}
+.where{font-size:13.5px;color:var(--ink-soft);margin:0 0 12px}
+.where a{text-decoration:none;border-bottom:1px solid rgba(46,110,142,.35)}
+ul.doing{list-style:none;margin:0 0 12px;padding:0}
+ul.doing li{position:relative;padding-left:18px;font-size:15.5px;margin-bottom:5px}
+ul.doing li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:1px;background:var(--brass)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;padding:3px 9px;border:1px solid var(--line);color:var(--ink-soft)}
+.tag.free{color:var(--brass);border-color:rgba(176,122,43,.45)}
+.tag.booked{color:var(--tide);border-color:rgba(46,110,142,.4)}
+.hint{font-size:14px;color:var(--ink-soft);background:var(--shell-deep);padding:12px 15px;border-left:2px solid var(--brass);margin:0}
+
+/* ---------- travel leg ---------- */
+.leg{display:grid;grid-template-columns:78px 1fr;gap:0 22px}
+.leg .time{color:var(--ink-soft);font-weight:400;font-size:14px}
+.leg-body{padding:0 0 38px 28px;border-left:1px dotted var(--line);font-size:14px;color:var(--ink-soft)}
+.cross{display:inline-flex;align-items:center;gap:9px;margin-top:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--brass)}
+.cross::before{content:"";width:24px;border-top:1px dashed var(--brass)}
+
+/* ---------- bring list ---------- */
+.bring{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.bring section{background:var(--card);padding:20px}
+.bring h4{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gift);font-weight:500;margin:0 0 12px;
+}
+.bring ul{list-style:none;margin:0;padding:0}
+.bring li{position:relative;padding-left:20px;font-size:15px;margin-bottom:7px}
+.bring li::before{
+  content:"";position:absolute;left:0;top:.42em;width:9px;height:9px;
+  border:1px solid var(--ink-soft);
+}
+
+/* ---------- contacts ---------- */
+table.contacts{width:100%;border-collapse:collapse;font-size:15px}
+table.contacts th{
+  text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-soft);font-weight:500;
+  padding:0 0 8px;border-bottom:1px solid var(--line);
+}
+table.contacts td{padding:11px 0;border-bottom:1px solid var(--line);vertical-align:top}
+table.contacts td:last-child{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+table.contacts a{text-decoration:none}
+
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--ink);margin-top:56px;padding:28px 0 80px;font-size:14px;color:var(--ink-soft)}
+
+/* ---------- motion ---------- */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- mobile ---------- */
+@media (max-width:620px){
+  .hero{padding-top:44px}
+  .wrap{padding:0 20px}
+  .keys,.bring{grid-template-columns:1fr}
+  .stop,.leg{grid-template-columns:1fr}
+  .time{padding:0 0 6px}
+  .track,.leg-body{padding-left:18px;padding-bottom:30px}
+  .dot{left:-6px;top:6px}
+  .tropic-note{display:block;padding:6px 0 0;background:none}
+  table.contacts td:last-child{text-align:left}
+}
+:focus-visible{outline:2px solid var(--tide);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">2026 / 08 / 01 · 週六 · 提前過父親節</p>
+    <h1>嘉義家族一日遊<br><em>行程總覽</em></h1>
+
+    <dl class="keys">
+      <div><dt>集合出發</dt><dd>08:00<small>高雄，國道1號北上</small></dd></div>
+      <div><dt>午餐訂位</dt><dd>12:00<small>蚵庄海產，嘉義市西區</small></dd></div>
+      <div><dt>上午門票</dt><dd>0 元<small>兩站都免費，含停車</small></dd></div>
+    </dl>
+
+    <div class="tropic">
+      <span class="tropic-label">北回歸線 · 23°26′N</span>
+      <span class="tropic-note">水上鄉就在線上，今天會來回穿越三次</span>
+    </div>
+  </header>
+
+  <main>
+
+    <h2 class="sec">當日行程</h2>
+
+    <div class="leg reveal">
+      <div class="time">08:00</div>
+      <div class="leg-body">
+        高雄集合出發，國道1號北上，水上交流道下。車程約 1 小時 15 分。
+        <span class="cross">第一次越線</span>
+      </div>
+    </div>
+
+    <section class="stop reveal">
+      <div class="time">09:15</div>
+      <div class="track">
+        <span class="dot"></span>
+        <h3 class="stopname">品皇咖啡觀光工廠</h3>
+        <p class="where">嘉義縣水上鄉大崙 155 號 ·
+          <a href="https://maps.google.com/?cid=14035497845943340354" target="_blank" rel="noopener">開啟導航</a> ·
+          08:00–17:00</p>
+        <div class="tags">
+          <span class="tag free">免門票</span><span class="tag">免費停車</span>
+          <span class="tag">全室內冷氣</span><span class="tag">停留 40 分</span>
+        </div>
+        <ul class="doing">
+          <li>咖啡知識展區，看自動化烘豆設備運作</li>
+          <li>4–5 款咖啡與奶茶免費試飲，喝過再決定買哪支</li>
+          <li>門口巨無霸咖啡杯，全家第一張合照就在這裡拍</li>
+        </ul>
+        <p class="hint">全台最大的咖啡觀光工廠，六千多坪，本質上比較接近一個好逛的大型賣場。展售區走道寬，推車和輪椅都好進出。</p>
+      </div>
+    </section>
+
+    <div class="leg reveal">
+      <div class="time">09:55</div>
+      <div class="leg-body">
+        往南 10 分鐘，同樣在水上鄉。
+        <span class="cross">第二次越線</span>
+      </div>
+    </div>
+
+    <section class="stop reveal">
+      <div class="time">10:05</div>
+      <div class="track">
+        <span class="dot"></span>
+        <h3 class="stopname">白人牙膏觀光工廠</h3>
+        <p class="where">嘉義縣水上鄉十一指厝 144 號 ·
+          <a href="https://maps.google.com/?cid=11073224251973903274" target="_blank" rel="noopener">開啟導航</a> ·
+          09:00–17:00（12:00–13:00 休息）</p>
+        <div class="tags">
+          <span class="tag free">免門票</span><span class="tag">免費停車</span>
+          <span class="tag">部分戶外</span><span class="tag">停留 1 小時 35 分</span>
+        </div>
+        <ul class="doing">
+          <li>進場每人領紅豆牛奶冰棒＋牙膏一條，跟著導覽聽製程（約 30 分）</li>
+          <li>將軍府 — 清光緒年間的江西古厝，民國 101 年整座拆解運台重組</li>
+          <li>十殿閻羅 — 最有話題的一區，小朋友看得懂、長輩也聊得起來</li>
+          <li>庭園魚池餵魚，走累了有椅子可以坐</li>
+          <li>展售中心：牙膏、漱口水、沐浴用品幾乎全台最低價，家裡的份一次補齊</li>
+        </ul>
+        <p class="hint">室內休息區的汽水、咖啡、薑母茶無限取用。導覽不強迫推銷，散客直接進館跟著走就行。假日團客多，如果要等，先自己逛將軍府再回頭跟下一梯。</p>
+      </div>
+    </section>
+
+    <div class="leg reveal">
+      <div class="time">11:40</div>
+      <div class="leg-body">
+        往嘉義市區，車程約 20 分鐘。工廠 12:00 休館，記得準時集合上車。
+        <span class="cross">第三次越線</span>
+      </div>
+    </div>
+
+    <section class="stop reveal">
+      <div class="time">12:00</div>
+      <div class="track">
+        <span class="dot"></span>
+        <h3 class="stopname">蚵庄海產</h3>
+        <p class="where">嘉義市西區博愛路二段 396 號 ·
+          <a href="https://maps.google.com/?cid=12524039966416912047" target="_blank" rel="noopener">開啟導航</a> ·
+          午餐 11:00–14:00</p>
+        <div class="tags">
+          <span class="tag booked">已訂位 12:00</span><span class="tag">大停車場</span>
+          <span class="tag">冷氣</span><span class="tag">今日主場</span>
+        </div>
+        <ul class="doing">
+          <li>門口生鮮海產檯現點現選，菜單上的熱炒可以另外加</li>
+          <li>常被點名的：烤蚵仔、九層塔炒海瓜子、蚵仔麵線、清蒸魚</li>
+          <li>時間留足，這頓不趕下一站</li>
+        </ul>
+        <p class="hint">分量偏大，人多也很容易點過頭，建議先點七八道再視情況加。傳統熱炒店風格，位子寬、走道好走。</p>
+      </div>
+    </section>
+
+    <h2 class="sec">出門前準備</h2>
+    <div class="bring reveal">
+      <section>
+        <h4>每個人都要帶</h4>
+        <ul>
+          <li>帽子或洋傘（白人牙膏有戶外區）</li>
+          <li>防曬、隨身水壺</li>
+          <li>手機、行動電源</li>
+          <li>好走的鞋，當天走路不少</li>
+        </ul>
+      </section>
+      <section>
+        <h4>長輩與小孩</h4>
+        <ul>
+          <li>常備藥、慢性病用藥</li>
+          <li>暈車藥（國道一小時多）</li>
+          <li>小朋友的替換衣物</li>
+          <li>薄外套，室內冷氣偏強</li>
+        </ul>
+      </section>
+    </div>
+
+    <h2 class="sec">聯絡電話</h2>
+    <table class="contacts reveal">
+      <thead><tr><th>單位</th><th>電話</th></tr></thead>
+      <tbody>
+        <tr><td>蚵庄海產<br><span style="font-size:13px;color:var(--ink-soft)">訂位異動打這支</span></td><td><a href="tel:052319987">05-231 9987</a></td></tr>
+        <tr><td>白人牙膏觀光工廠</td><td><a href="tel:0988803303">0988-803 303</a></td></tr>
+        <tr><td>品皇咖啡觀光工廠</td><td><a href="tel:053713299">05-371 3299</a></td></tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <footer>
+    行程如有調整會更新在這一頁。台灣父親節是 8/8，提前一週出遊人潮少很多，海產店也比較好訂。
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(el){el.classList.add('in')});return;
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})
+  },{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(el){io.observe(el)});
+})();
+</script>
+</body>
+</html>
