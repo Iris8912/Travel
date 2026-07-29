@@ -46,9 +46,9 @@ h1{
 h1 em{font-style:normal;color:var(--gift)}
 
 /* ---------- key facts ---------- */
-.keys{
+.keys{margin-top:0;
   display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--line);border:1px solid var(--line);margin:0 0 14px;
+  background:var(--line);border:1px solid var(--line);margin:0;
 }
 .keys div{background:var(--card);padding:18px}
 .keys dt{
@@ -64,15 +64,6 @@ h2.sec{
   color:var(--brass);font-weight:500;margin:56px 0 20px;
   padding-bottom:10px;border-bottom:1px solid var(--ink);
 }
-
-/* ---------- tropic band ---------- */
-.tropic{position:relative;padding:20px 0;border-bottom:1px solid var(--line)}
-.tropic::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px dashed var(--brass);opacity:.5}
-.tropic-label{
-  position:relative;display:inline-block;background:var(--shell);padding-right:14px;
-  font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--brass);
-}
-.tropic-note{position:relative;background:var(--shell);display:inline-block;padding-left:14px;font-size:13px;color:var(--ink-soft)}
 
 /* ---------- schedule ---------- */
 .stop{display:grid;grid-template-columns:78px 1fr;gap:0 22px}
@@ -99,8 +90,6 @@ ul.doing li::before{content:"";position:absolute;left:0;top:.72em;width:7px;heig
 .leg{display:grid;grid-template-columns:78px 1fr;gap:0 22px}
 .leg .time{color:var(--ink-soft);font-weight:400;font-size:14px}
 .leg-body{padding:0 0 38px 28px;border-left:1px dotted var(--line);font-size:14px;color:var(--ink-soft)}
-.cross{display:inline-flex;align-items:center;gap:9px;margin-top:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;color:var(--brass)}
-.cross::before{content:"";width:24px;border-top:1px dashed var(--brass)}
 
 /* ---------- bring list ---------- */
 .bring{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -145,7 +134,6 @@ footer{border-top:1px solid var(--ink);margin-top:56px;padding:28px 0 80px;font-
   .time{padding:0 0 6px}
   .track,.leg-body{padding-left:18px;padding-bottom:30px}
   .dot{left:-6px;top:6px}
-  .tropic-note{display:block;padding:6px 0 0;background:none}
   table.contacts td:last-child{text-align:left}
 }
 :focus-visible{outline:2px solid var(--tide);outline-offset:3px}
@@ -163,11 +151,6 @@ footer{border-top:1px solid var(--ink);margin-top:56px;padding:28px 0 80px;font-
       <div><dt>午餐訂位</dt><dd>12:00<small>蚵庄海產，嘉義市西區</small></dd></div>
       <div><dt>上午門票</dt><dd>0 元<small>兩站都免費，含停車</small></dd></div>
     </dl>
-
-    <div class="tropic">
-      <span class="tropic-label">北回歸線 · 23°26′N</span>
-      <span class="tropic-note">水上鄉就在線上，今天會來回穿越三次</span>
-    </div>
   </header>
 
   <main>
@@ -178,7 +161,6 @@ footer{border-top:1px solid var(--ink);margin-top:56px;padding:28px 0 80px;font-
       <div class="time">08:00</div>
       <div class="leg-body">
         高雄集合出發，國道1號北上，水上交流道下。車程約 1 小時 15 分。
-        <span class="cross">第一次越線</span>
       </div>
     </div>
 
@@ -207,7 +189,6 @@ footer{border-top:1px solid var(--ink);margin-top:56px;padding:28px 0 80px;font-
       <div class="time">09:55</div>
       <div class="leg-body">
         往南 10 分鐘，同樣在水上鄉。
-        <span class="cross">第二次越線</span>
       </div>
     </div>
 
@@ -238,7 +219,6 @@ footer{border-top:1px solid var(--ink);margin-top:56px;padding:28px 0 80px;font-
       <div class="time">11:40</div>
       <div class="leg-body">
         往嘉義市區，車程約 20 分鐘。工廠 12:00 休館，記得準時集合上車。
-        <span class="cross">第三次越線</span>
       </div>
     </div>
 
