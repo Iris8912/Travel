@@ -85,6 +85,23 @@ ul.doing li::before{content:"";position:absolute;left:0;top:.72em;width:7px;heig
 .tag.free{color:var(--brass);border-color:rgba(176,122,43,.45)}
 .tag.booked{color:var(--tide);border-color:rgba(46,110,142,.4)}
 .hint{font-size:14px;color:var(--ink-soft);background:var(--shell-deep);padding:12px 15px;border-left:2px solid var(--brass);margin:0}
+.hint b{color:var(--ink);font-weight:500}
+
+/* ---------- dish lists ---------- */
+h4.dishhead{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gift);font-weight:500;margin:18px 0 10px;
+}
+ul.dishes{list-style:none;margin:0 0 4px;padding:0}
+ul.dishes li{
+  font-size:15px;line-height:1.65;color:var(--ink-soft);
+  padding:0 0 9px 0;margin:0 0 9px;border-bottom:1px solid var(--line);
+}
+ul.dishes li:last-child{border-bottom:none;margin-bottom:14px}
+ul.dishes b{
+  display:inline-block;color:var(--ink);font-family:var(--display);font-weight:700;
+  font-size:16px;margin-right:9px;
+}
 
 /* ---------- travel leg ---------- */
 .leg{display:grid;grid-template-columns:78px 1fr;gap:0 22px}
@@ -231,15 +248,36 @@ footer{border-top:1px solid var(--ink);margin-top:56px;padding:28px 0 80px;font-
           <a href="https://maps.google.com/?cid=12524039966416912047" target="_blank" rel="noopener">開啟導航</a> ·
           午餐 11:00–14:00</p>
         <div class="tags">
-          <span class="tag booked">已訂位 12:00</span><span class="tag">大停車場</span>
-          <span class="tag">冷氣</span><span class="tag">今日主場</span>
+          <span class="tag booked">已訂位 12:00</span><span class="tag">均消 400 元</span>
+          <span class="tag">大停車場</span><span class="tag">今日主場</span>
         </div>
         <ul class="doing">
-          <li>門口生鮮海產檯現點現選，菜單上的熱炒可以另外加</li>
-          <li>常被點名的：烤蚵仔、九層塔炒海瓜子、蚵仔麵線、清蒸魚</li>
+          <li>開放式水族箱現撈點菜，廚房也是開放式的</li>
+          <li>菜色價格都清楚標示，一般餐點 150 元起，火鍋與粥類較高</li>
           <li>時間留足，這頓不趕下一站</li>
         </ul>
-        <p class="hint">分量偏大，人多也很容易點過頭，建議先點七八道再視情況加。傳統熱炒店風格，位子寬、走道好走。</p>
+
+        <h4 class="dishhead">招牌必點</h4>
+        <ul class="dishes">
+          <li><b>白鯧米粉</b>白鯧切得大塊、炸得剛好，湯頭是淋蛋酥的油蔥芋頭湯。幾乎每篇食記都推，人多點才划算</li>
+          <li><b>厚切烏魚子</b>切得豪氣，口感綿密、表皮烤得剛剛好</li>
+          <li><b>海膽煎蛋</b>香氣足，最常被回味的一道</li>
+          <li><b>黑蒜頭雞湯</b>微辣卻溫潤</li>
+          <li><b>螃蟹</b>沙母、大閘蟹都有，蟹肉鮮甜、蟹膏飽滿</li>
+          <li><b>蚵酥</b>外酥內軟，粉不會太厚</li>
+        </ul>
+
+        <h4 class="dishhead">評價也不錯的</h4>
+        <ul class="dishes">
+          <li><b>金沙杏鮑菇</b>鹹蛋黃裹得夠厚、香氣十足</li>
+          <li><b>醬燒炒海瓜子</b>調味不過鹹，醬料很配白飯</li>
+          <li><b>烤軟絲</b>熟度剛好保有肉汁，沾胡椒粉就好吃</li>
+          <li><b>炒鱔魚</b>台式醋溜炒法，下飯</li>
+          <li><b>烏魚子炒飯</b>鹹香夠味、鍋氣足</li>
+          <li><b>小卷米粉、酸白菜肉鍋</b>配料豐富、料多實在</li>
+        </ul>
+
+        <p class="hint">不是一般背心加毛巾的熱炒店，廚師都穿白廚師服戴帽子，實際上比較接近正式的合菜餐廳。以嘉義物價來說價格偏中上，但海鮮新鮮，很適合節慶聚餐。</p>
       </div>
     </section>
 
@@ -278,7 +316,7 @@ footer{border-top:1px solid var(--ink);margin-top:56px;padding:28px 0 80px;font-
   </main>
 
   <footer>
-    行程如有調整會更新在這一頁。台灣父親節是 8/8，提前一週出遊人潮少很多，海產店也比較好訂。
+    行程如有調整會更新在這一頁。
   </footer>
 
 </div>
